@@ -4,7 +4,7 @@ dc.files.kbd
 Keyboard config (xmodmap, etc)
 
 ## TODO:
--   add PCRemap settings
--   add MacKeyboardRemap settings
+-   script links to remap
+-   add private.xml (to define custom remaps)
 -   script create mac shortcuts
 -   script create ubuntu shortcuts
