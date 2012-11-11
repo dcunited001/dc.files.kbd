@@ -1,0 +1,75 @@
+! save this file to:  /etc/X11/xinit/Xmodmaprc
+! then call in:       /etc/X11/xinit/xinitrc
+! with:               xmodmap /etc/X11/xinit/Xmodmaprc
+
+! ASUS UL50V
+clear Lock
+
+!ESC
+keycode 9 = Hyper_L
+
+!CAPS
+keycode 66 = Escape 
+
+!SHIFT LR 50 62
+
+!ALT LR
+keycode 64 = Control_L
+keycode 108 = Control_R
+
+!CTRL LR
+keycode 37 = Control_L
+keycode 105 = Alt_R
+
+!SUPER LR & MENU
+keycode 133 = Meta_L
+!keycode 134 = Super_R
+keycode 135 = Super_R
+
+!MENU
+!keycode 135
+
+!FN Combos
+! F-C  156  XF86Launch1
+keycode 156 = XF86Copy
+keycode 220 = XF86Paste
+
+! Misc Codes ????
+keycode 204 = NoSymbol NoSymbol NoSymbol NoSymbol
+keycode 205 = NoSymbol NoSymbol NoSymbol NoSymbol
+keycode 206 = NoSymbol NoSymbol NoSymbol NoSymbol
+keycode 207 = NoSymbol NoSymbol NoSymbol NoSymbol
+!keycode 204 = NoSymbol Alt_L NoSymbol Alt_L
+!keycode 205 = NoSymbol Meta_L NoSymbol Meta_L
+!keycode 206 = NoSymbol Super_L NoSymbol Super_L
+!keycode 207 = NoSymbol Hyper_L NoSymbol Hyper_L
+
+! clear labels
+clear Control
+clear Mod1
+clear Mod2
+clear Mod3
+clear Mod4
+clear Mod5
+
+! add labels
+add Control = Control_L Control_R
+add Mod1 = Alt_L Alt_R
+add Mod2 = Num_Lock
+add Mod3 = Meta_L Meta_R
+add Mod4 = Super_L Super_R
+add Mod5 = Hyper_L Mode_switch
+
+! remove Lock = Caps_Lock
+! keysym Caps_Lock = Escape
+
+!Default mod assignments
+!shift       Shift_L (0x32),  Shift_R (0x3e)
+!lock      
+!control     Control_L (0x25),  Control_R (0x69)
+!mod1        Alt_L (0x40),  Alt_R (0x6c),  Meta_L (0xcd)
+!mod2        Num_Lock (0x4d)
+!mod3      
+!mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
+!mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
+
