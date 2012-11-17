@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SUFeedURL</key>
+	<string>http://pqrs.org/macosx/keyremap4macbook/files/appcast.xml</string>
+	<key>SULastCheckTime</key>
+	<date>2012-11-11T09:50:34Z</date>
+	<key>WebKitDefaultFontSize</key>
+	<integer>11</integer>
+	<key>WebKitStandardFont</key>
+	<string>Lucida Grande</string>
+	<key>configList</key>
+	<array>
+		<dict>
+			<key>identify</key>
+			<string>config_1336131834_355678</string>
+			<key>name</key>
+			<string>Default</string>
+		</dict>
+		<dict>
+			<key>identify</key>
+			<string>config_1352640431_464084</string>
+			<key>name</key>
+			<string>Settings2</string>
+		</dict>
+	</array>
+	<key>config_1336131834_355678</key>
+	<dict>
+		<key>passthrough.fnescape</key>
+		<integer>1</integer>
+		<key>remap.Quote_to_Ctrl_UpArrow</key>
+		<integer>1</integer>
+		<key>remap.app_finder_command_R_to_return</key>
+		<integer>1</integer>
+		<key>remap.eject2forwarddelete_retain_fnEject</key>
+		<integer>1</integer>
+		<key>remap.escape2controlLf3</key>
+		<integer>1</integer>
+		<key>remap.fn2commandL</key>
+		<integer>1</integer>
+		<key>remap.fnEscape2power</key>
+		<integer>1</integer>
+		<key>remap.pc_application2exposeALL</key>
+		<integer>1</integer>
+		<key>remap.simcursor_to_diagonal_cursor</key>
+		<integer>1</integer>
+		<key>remap.simultaneouskeypresses_kl2controlLf4</key>
+		<integer>1</integer>
+	</dict>
+	<key>selectedIndex</key>
+	<integer>0</integer>
+</dict>
+</plist>

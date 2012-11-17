@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>targetSetting1</key>
+	<string>notsave.thumbsense</string>
+	<key>targetSetting2</key>
+	<string>notsave.enhanced_copyandpaste</string>
+	<key>targetSetting3</key>
+	<string>notsave.pointing_relative_to_scroll</string>
+	<key>targetSettingIsEnabled1</key>
+	<string>YES</string>
+	<key>targetSettingIsEnabled2</key>
+	<string>NO</string>
+	<key>targetSettingIsEnabled3</key>
+	<string>NO</string>
+</dict>
+</plist>
