@@ -5,50 +5,52 @@
 	<key>SUFeedURL</key>
 	<string>http://pqrs.org/macosx/keyremap4macbook/files/appcast.xml</string>
 	<key>SULastCheckTime</key>
-	<date>2012-11-11T09:50:34Z</date>
-	<key>WebKitDefaultFontSize</key>
-	<integer>11</integer>
-	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<date>2012-11-24T09:18:54Z</date>
 	<key>configList</key>
 	<array>
 		<dict>
 			<key>identify</key>
-			<string>config_1336131834_355678</string>
+			<string>config_1352983173_71620</string>
 			<key>name</key>
 			<string>Default</string>
 		</dict>
-		<dict>
-			<key>identify</key>
-			<string>config_1352640431_464084</string>
-			<key>name</key>
-			<string>Settings2</string>
-		</dict>
 	</array>
-	<key>config_1336131834_355678</key>
+	<key>config_1352983173_71620</key>
 	<dict>
-		<key>passthrough.fnescape</key>
+		<key>general.disable_numpad_hack</key>
 		<integer>1</integer>
-		<key>remap.Quote_to_Ctrl_UpArrow</key>
+		<key>mac_vhyper.pc_app_key_as_virtual_hyper</key>
 		<integer>1</integer>
-		<key>remap.app_finder_command_R_to_return</key>
+		<key>passthrough.holding_escape</key>
 		<integer>1</integer>
-		<key>remap.eject2forwarddelete_retain_fnEject</key>
+		<key>private.cmd_shifts_to_square_parens</key>
 		<integer>1</integer>
-		<key>remap.escape2controlLf3</key>
+		<key>private.my_custom_setting</key>
 		<integer>1</integer>
-		<key>remap.fn2commandL</key>
+		<key>private.opt_shifts_to_curly_parens</key>
 		<integer>1</integer>
-		<key>remap.fnEscape2power</key>
-		<integer>1</integer>
-		<key>remap.pc_application2exposeALL</key>
+		<key>private.shifts_to_parens</key>
 		<integer>1</integer>
 		<key>remap.simcursor_to_diagonal_cursor</key>
 		<integer>1</integer>
 		<key>remap.simultaneouskeypresses_kl2controlLf4</key>
 		<integer>1</integer>
+		<key>remap.simultaneouskeypresses_shiftRuparrow2pc_application</key>
+		<integer>1</integer>
+		<key>space_cadet.f19_to_hyper</key>
+		<integer>1</integer>
+		<key>uber_key.pc_app_key_as_uber_key</key>
+		<integer>1</integer>
+		<key>uber_key.uber_ctrl_k_to_f18</key>
+		<integer>1</integer>
+		<key>uber_key.uber_row1_to_shift_fn</key>
+		<integer>1</integer>
+		<key>uber_key.uber_row2_to_ctrl_fn</key>
+		<integer>1</integer>
+		<key>uber_key.uber_row3_to_opt_fn</key>
+		<integer>1</integer>
+		<key>uber_key.uber_row4_to_cmd_fn</key>
+		<integer>1</integer>
 	</dict>
-	<key>selectedIndex</key>
-	<integer>0</integer>
 </dict>
 </plist>

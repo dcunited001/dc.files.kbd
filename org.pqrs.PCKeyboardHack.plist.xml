@@ -7,7 +7,7 @@
 	<key>SUFeedURL</key>
 	<string>http://pqrs.org/macosx/keyremap4macbook/files/PCKeyboardHack-appcast.xml</string>
 	<key>SULastCheckTime</key>
-	<date>2012-11-11T09:50:33Z</date>
+	<date>2012-11-20T01:57:53Z</date>
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
@@ -25,7 +25,7 @@
 		<key>keycode_control_r</key>
 		<integer>59</integer>
 		<key>keycode_escape</key>
-		<integer>110</integer>
+		<integer>80</integer>
 	</dict>
 </dict>
 </plist>
