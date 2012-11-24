@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>VHyperKey</name>
+    <appendix>trishume - https://gist.github.com/4135580</appendix>
+
+    <item>
+      <name>as Control + Shift + Option + Command</name>
+      <item>
+        <name>Remap Left Control to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.left_control_to_hyper</identifier>
+        <!-- using CONTROL_L instead of F19 (github.com/sjl/dotfiles) -->
+        <autogen>--KeyToKey-- KeyCode::CONTROL_L, KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap Right Control to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps Right Control to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.right_control_to_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap PC Application Key to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.pc_application_key_to_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap F19 to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.f19_to_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::F19, KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L </autogen>
+      </item>
+    </item>
+
+    <item>
+      <name>Remap Hyper+P to play/pause</name>
+      <appendix>For keyboards without media keys.</appendix>
+
+      <identifier>space_cadet.hyper_pause</identifier>
+      <autogen>--KeyToConsumer-- KeyCode::P, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, ConsumerKeyCode::MUSIC_PLAY</autogen>
+    </item>
+  </item>
+
+</root>

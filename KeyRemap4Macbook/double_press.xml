@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>DoublePress</name>
+    <appendix>Allows you to map a modifierkey doublepress</appendix>
+    <appendix>to another key</appendix>
+
+    <item>
+      <name>DoublePress Control_R => Enter</name>
+
+      <identifier>double_press.ctrl_r_to_enter</identifier>
+      <autogen>--DoublePressModifier-- KeyCode::CONTROL_R, KeyCode::VK_LAZY_CONTROL_R, KeyCode::ENTER</autogen>
+    </item>
+
+    <!-- safe for other modkeys? -->
+  </item>
+
+</root>

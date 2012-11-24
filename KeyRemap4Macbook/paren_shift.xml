@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>ParenShift</name>
+    <appendix>Adds mapping to shift when pushed alone</appendix>
+    <appendix>j2fly - https://gist.github.com/3874668</appendix>
+
+    <item>
+      <name>Shifts to ( ) Parentheses</name>
+      <appendix>Shifts type parentheses, when pressed alone.  Otherwise normal shifts.</appendix>
+
+      <identifier>paren_shift.shifts_to_parens</identifier>
+
+      <!-- This is the basic mapping. -->
+      <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
+      <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+
+      <!-- Remap Simultaneous Shift Presses. -->
+      <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+    </item>
+
+    <item>
+      <name>Shift-Cmd to [ ] Parentheses</name>
+      <appendix>Shifts type parentheses, when pressed alone.  Otherwise normal shifts.</appendix>
+
+      <identifier>paren_shift.cmd_shifts_to_square_parens</identifier>
+
+      <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::BRACKET_LEFT, ModifierFlag::NONE</autogen>
+      <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::BRACKET_RIGHT, ModifierFlag::NONE</autogen>
+      <!-- Not worrying about simultaneous keypresses here -->
+    </item>
+
+    <item>
+      <name>Shift-Opt to { } Parentheses</name>
+      <appendix>Shifts type parentheses, when pressed alone.  Otherwise normal shifts.</appendix>
+
+      <identifier>paren_shift.opt_shifts_to_curly_parens</identifier>
+
+      <autogen>--KeyOverlaidModifier-- KeyCode::OPTION_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_R</autogen>
+      <autogen>--KeyOverlaidModifier-- KeyCode::OPTION_R, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L</autogen>
+      <!-- Not worrying about simultaneous keypresses here -->
+    </item>
+
+  </item>
+</root>
+
