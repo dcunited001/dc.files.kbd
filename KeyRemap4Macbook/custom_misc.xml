@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>Custom Misc</name>
+
+    <item>
+      <name>Shift-Space to Underscore</name>
+      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_L, KeyCode::UNDERSCORE</autogen>
+    </item>
+
+    <item>
+      <name>Fn keys for iterm</name>
+      <identifier>private.fn_keys_for_iterm</identifier>
+      <appendix>Set F1-2, F5-6, F8, F11-12</appendix>
+      <appendix>to act as function keys in Terminal</appendix>
+      <only>TERMINAL</only>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_UP,          KeyCode::F12</autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_DOWN,        KeyCode::F11</autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PLAY,         KeyCode::F8 </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, KeyCode::F6 </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW,  KeyCode::F5 </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_UP,      KeyCode::F2 </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_DOWN,    KeyCode::F1 </autogen>
+    </item>
+
+    <item>
+      <name>Hold Command+X to Quit Application</name>
+      <appendix>(You can adjust the threshold time of holding by</appendix>
+      <appendix>"[Holding Key to Key] Holding Threshold" in Key Repeat tab.)</appendix>
+      <appendix>tekezo - git://gist.github.com/921151.git</appendix>
+      <identifier>private.holdcommandX</identifier>
+      <autogen>--HoldingKeyToKey-- KeyCode::X, VK_COMMAND | ModifierFlag::NONE, KeyCode::VK_NONE, KeyCode::Q, VK_COMMAND, Option::NOREPEAT</autogen>
+    </item>
+
+    <item>
+      <name>Swap Space and Tab</name>
+      <identifier>private.swap_space_and_tab</identifier>
+      <autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::TAB</autogen>
+      <autogen>--KeyToKey-- KeyCode::TAB, KeyCode::SPACE</autogen>
+    </item>
+
+    <item>
+      <name>Help to Fn</name>
+      <identifier>private.fb_to_tab</identifier>
+      <autogen>--KeyToKey-- KeyCode::HELP, KeyCode::FN</autogen>
+    </item>
+
+    <item>
+      <name>Fn + F13,F14(NumLock), F15 to Music Control</name>
+      <identifier>private.f13_to_prev</identifier>
+      <autogen>--KeyToConsumer-- KeyCode::F13, ModifierFlag::FN, ConsumerKeyCode::MUSIC_PREV</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F14, ModifierFlag::FN, ConsumerKeyCode::MUSIC_PLAY</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F15, ModifierFlag::FN, ConsumerKeyCode::MUSIC_NEXT</autogen>
+    </item>
+
+    <item>
+      <name>Fn + ', [ to PgUp/PgDown</name>
+      <identifier>private.pgup_pgdown_laptop</identifier>
+      <autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::FN, KeyCode::PAGEUP</autogen>
+      <autogen>--KeyToKey-- KeyCode::JIS_COLON, ModifierFlag::FN, KeyCode::PAGEDOWN</autogen>
+    </item>
+
+    <item>
+      <name>F10 to Sleep</name>
+      <identifier>private.f10_to_sleep</identifier>
+      <appendix>tekezo - https://gist.github.com/911056</appendix>
+
+      <autogen>--KeyToConsumer-- KeyCode::F10, ConsumerKeyCode::EJECT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L</autogen>
+    </item>
+  </item>
+
+
+</root>

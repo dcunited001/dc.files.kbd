@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>Custom Swap</name>
+
+    <item>
+      <name>Swap OPTION_L and COMMAND_L</name>
+      <identifier>private.swap_OPTION_L_and_COMMAND_L</identifier>
+      <autogen>--KeyToKey-- KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+    </item>
+
+    <item>
+      <name>Swap OPTION_R and COMMAND_R</name>
+      <identifier>private.swap_OPTION_R_and_COMMAND_R</identifier>
+      <autogen>--KeyToKey-- KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
+      <autogen>--KeyToKey-- KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
+    </item>
+
+    <item>
+      <name>Replace PC_APPLICATION with CONTROL_R</name>
+      <identifier>private.replace_PC_APPLICATION_with_CONTROL_R</identifier>
+      <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::CONTROL_R</autogen>
+    </item>
+
+    <item>
+      <name>Replace PC_BS with DELETE</name>
+      <identifier>private.replace_PC_BS_with_DELETE</identifier>
+      <autogen>--KeyToKey-- KeyCode::PC_BS, KeyCode::DELETE</autogen>
+    </item>
+
+    <item>
+      <name>Replace PC_PRINTSCREEN with F13</name>
+      <identifier>private.replace_PC_PRINTSCREEN_with_F13</identifier>
+      <autogen>--KeyToKey-- KeyCode::PC_PRINTSCREEN, ModifierFlag::FN, KeyCode::F13</autogen>
+      <autogen>--KeyToKey-- KeyCode::PC_PRINTSCREEN, KeyCode::VK_CONSUMERKEY_EJECT</autogen>
+    </item>
+
+    <item>
+      <name>Replace PC_SCROLLLOCK with F14</name>
+      <identifier>private.replace_PC_SCROLLLOCK_with_F14</identifier>
+      <autogen>--KeyToKey-- KeyCode::PC_SCROLLLOCK, KeyCode::F14</autogen>
+    </item>
+
+    <item>
+      <name>Replace PC_PAUSE with F15</name>
+      <identifier>private.replace_PC_PAUSE_with_F15</identifier>
+      <autogen>--KeyToKey-- KeyCode::PC_PAUSE, KeyCode::F15</autogen>
+    </item>
+  </item>
+</root>
