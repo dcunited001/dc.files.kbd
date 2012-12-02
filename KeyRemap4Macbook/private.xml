@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <root>
+  <include path="custom_eject.xml"/>
   <include path="v_hyper_key.xml" />
   <!-- <include path="double_press.xml" /> -->
   <!-- <include path="paren_shift.xml" /> -->

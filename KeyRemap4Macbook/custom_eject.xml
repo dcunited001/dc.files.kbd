@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Custom Eject</name>
+
+    <item>
+      <name>Command Eject to Command + PC Application Key</name>
+      <identifier>custom_eject.cmd_eject_to_cmd_pc_application_key</identifier>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, KeyCode::PC_APPLICATION</autogen>
+    </item>
+
+    <item>
+      <name>Eject to F19</name>
+      <appendix>(Fn+Eject to Eject)</appendix>
+      <identifier>remap.eject2f19</identifier>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::EJECT, ModifierFlag::FN, ConsumerKeyCode::EJECT</autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, KeyCode::F19</autogen>
+    </item>
+
+    <item>
+      <name>Eject to F19</name>
+      <appendix>(Eject to Forward Delete if no modifiers pressed)</appendix>
+      <appendix>(Fn+Eject to Eject)</appendix>
+      <identifier>remap.eject2f19plusforwarddelete</identifier>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::EJECT, ModifierFlag::FN, ConsumerKeyCode::EJECT</autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, ModifierFlag::NONE, KeyCode::FORWARD_DELETE</autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, KeyCode::F19</autogen>
+    </item>
+
+  </item>
+</root>
