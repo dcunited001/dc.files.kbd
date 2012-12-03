@@ -14,7 +14,7 @@
     </item>
 
     <item>
-      <name>Uber Key Mappings</name>
+      <name>Uber Key Mappings using EXTRA1 Virtual Modifier Key</name>
       <appendix>Must unmap all Mac OS X level F-key shortcuts (none are useful)</appendix>
 
       <item>
@@ -87,28 +87,156 @@
     </item>
 
     <item>
-      <name>Examples</name>
+      <name>Uber Key Mappings using COMMAND_R</name>
+      <appendix>-- Use this when remapping ESC => CMD_R and CMR_R => CMD_L --</appendix>
+      <appendix>Must unmap all Mac OS X level F-key shortcuts (none are useful)</appendix>
+
       <item>
-        <name>Uber + K => F17</name>
-        <identifier>uber_key.uber_k_to_f17</identifier>
-        <appendix>e.g. mapping uber key to f17</appendix>
-        <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F17</autogen>
+        <name>CMD_R+[1-90-=] mapped to Shift+F1-F12)</name>
+        <identifier>uber_key.cmd_r_uber_row1_to_shift_fn</identifier>
+        <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F11, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F12, ModifierFlag::SHIFT_L</autogen>
       </item>
 
       <item>
-        <name>Uber + Opt + A => F18</name>
-        <identifier>uber_key.uber_opt_a_to_f18</identifier>
-        <appendix>e.g. mapping uber key to f18</appendix>
-        <autogen>--KeyToKey-- KeyCode::A, ModifierFlag::EXTRA1 | VK_OPTION | ModifierFlag::NONE, KeyCode::F18</autogen>
+        <name>CMD_R+([qwertyuiop]|\[|\]) mapped to Ctrl+F1-F12</name>
+        <identifier>uber_key.cmd_r_uber_row2_to_ctrl_fn</identifier>
+        <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::W, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::T, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::U, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::O, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::P, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F11, ModifierFlag::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F12, ModifierFlag::CONTROL_L</autogen>
       </item>
 
       <item>
-        <name>Uber + L => F19</name>
-        <identifier>uber_key.uber_k_to_f19</identifier>
-        <appendix>e.g. mapping uber key to f19</appendix>
-        <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F19</autogen>
+        <name>CMD_R+([asdfghjkl]|;|') mapped to Opt+F1-F12</name>
+        <identifier>uber_key.cmd_r_uber_row3_to_opt_fn</identifier>
+        <autogen>--KeyToKey-- KeyCode::A, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::S, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::D, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::F, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::G, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::H, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::J, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::OPTION_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F11, ModifierFlag::OPTION_L</autogen>
+        <!-- OPT+F12 unassigned - tilda? -->
+      </item>
+
+      <item>
+        <name>CMD_R+([zxcvbnm]|,|.|/) mapped to Cmd+F1-F12</name>
+        <identifier>uber_key.cmd_r_uber_row4_to_cmd_fn</identifier>
+        <autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::X, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::C, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::V, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::B, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::N, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::M, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::COMMAND_L</autogen>
+        <!-- CMD+F11 unassigned - delete? -->
+        <!-- CMD+F12 unassigned - backslash? -->
+      </item>
+
+      <item>
+        <name>CMD_R+(`|tab) mapped to Mod+F13</name>
+        <appendix>CMD_R+` => F13</appendix>
+        <appendix>SHIFT_L+CMD_R+` => SHIFT_L+F13</appendix>
+        <appendix>CMD_R+TAB => CTRL_L+F13</appendix>
+        <appendix>SHIFT_L+CMD_R+TAB => CTRL_L+F13</appendix>
+        <appendix>CMD_R+ESC(caps) => OPT_L+F13</appendix>
+        <appendix>SHIFT_L+CMD_R+ESC(caps) => OPT_L+F13</appendix>
+
+        <identifier>uber_key.cmd_r_uber_left_misc_to_f13</identifier>
+        <autogen>--KeyToKey-- KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::CONTROL_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::OPTION_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      </item>
+
+      <item>
+        <name>CMD_R+SPACE => OPTION+COMMAND+F13</name>
+        <identifier>uber_key.cmd_r_uber_space_to_option_command_f13</identifier>
+
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L | ModifierFlag::NONE </autogen>
+      </item>
+
+      <item>
+        <name>SHIFT+CMD_R+SPACE => SHIFT+OPTION+COMMAND+F13</name>
+        <identifier>uber_key.cmd_r_uber_space_to_shift_option_command_f13</identifier>
+
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L |  ModifierFlag::NONE </autogen>
+      </item>
+
+      <item>
+        <name>CMD_R+(delete|backslash|return) mapped to Mod+F14</name>
+        <appendix>CMD_R+DELETE => F14</appendix>
+        <appendix>SHIFT_L+CMD_R+DELETE => SHIFT_L+F14</appendix>
+        <appendix>CMD_R+BACKSLASH => CTRL_L+F14</appendix>
+        <appendix>SHIFT+CMD_R+BACKSLASH => SHIFT+CTRL_L+F14</appendix>
+        <appendix>CMD_R+RETURN => OPT_L+F14</appendix>
+        <appendix>SHIFT+CMD_R+RETURN => SHIFT+OPT_L+F14</appendix>
+
+        <identifier>uber_key.cmd_r_uber_right_misc_to_f14</identifier>
+        <autogen>--KeyToKey-- KeyCode::DELETE, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::DELETE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::CONTROL_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::CONTROL_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::OPTION_L | ModifierFlag::NONE </autogen>
+        <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L | ModifierFlag::NONE </autogen>
+      </item>
+
+      <item>
+        <name>CMD_R+FORWARD_DELETE</name>
+        <appendix>CMD_R+FORWARD_DELETE => CMD_L+CTRL_L+OPT_L+F14</appendix>
+        <appendix>SHIFT_L+CMD_R+FORWARD_DELETE => SHIFT_L+CMD_L+CTRL_L+OPT_L+F14</appendix>
+        <appendix>Use this when mapping eject to forward delete</appendix>
+        <identifier>uber_key.cmd_r_uber_forward_delete_to_shift_cmd_ctrl_opt_f14</identifier>
+
+        <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen>
+        <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen>
+        <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, ModifierFlag::SHIFT_R | ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen>
+      </item>
+
+      <item>
+        <name>CMD_R+SHIFT_L(only) => CMD_L+F13</name>
+        <appendix>This should not affect SHIFT_L+CMD_R+`</appendix>
+        <identifier>uber_key.cmd_r_uber_left_shift_to_cmd_f13</identifier>
+
+        <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F13, ModifierFlag::COMMAND_L | ModifierFlag::NONE </autogen>
+      </item>
+
+      <item>
+        <name>CMD_R+SHIFT_R(only) => CMD_L+F14</name>
+        <appendix>This should not affect SHIFT_R+CMD_R+`</appendix>
+        <identifier>uber_key.cmd_r_uber_right_shift_to_cmd_f14</identifier>
+
+        <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::COMMAND_L | ModifierFlag::NONE </autogen>
       </item>
     </item>
-  </item>
 
+  </item>
 </root>
