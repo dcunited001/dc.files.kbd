@@ -3,9 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>SUFeedURL</key>
-	<string>http://pqrs.org/macosx/keyremap4macbook/files/appcast.xml</string>
+	<string>http://pqrs.org/macosx/keyremap4macbook/files/appcast-devel.xml</string>
 	<key>SULastCheckTime</key>
-	<date>2012-11-24T09:18:54Z</date>
+	<date>2012-12-03T19:08:08Z</date>
+	<key>WebKitDefaultFontSize</key>
+	<integer>11</integer>
+	<key>WebKitStandardFont</key>
+	<string>Lucida Grande</string>
 	<key>configList</key>
 	<array>
 		<dict>
@@ -21,6 +25,12 @@
 		<integer>1</integer>
 		<key>mac_vhyper.pc_app_key_as_virtual_hyper</key>
 		<integer>1</integer>
+		<key>paren_shift.cmd_shifts_to_square_parens</key>
+		<integer>1</integer>
+		<key>paren_shift.opt_shifts_to_curly_parens</key>
+		<integer>1</integer>
+		<key>paren_shift.shifts_to_parens</key>
+		<integer>1</integer>
 		<key>passthrough.holding_escape</key>
 		<integer>1</integer>
 		<key>private.cmd_shifts_to_square_parens</key>
@@ -31,13 +41,45 @@
 		<integer>1</integer>
 		<key>private.shifts_to_parens</key>
 		<integer>1</integer>
+		<key>remap.eject2forwarddelete_retain_fnEject</key>
+		<integer>1</integer>
+		<key>remap.enable_fn2allmods</key>
+		<integer>1</integer>
 		<key>remap.simcursor_to_diagonal_cursor</key>
 		<integer>1</integer>
 		<key>remap.simultaneouskeypresses_kl2controlLf4</key>
 		<integer>1</integer>
 		<key>remap.simultaneouskeypresses_shiftRuparrow2pc_application</key>
 		<integer>1</integer>
-		<key>space_cadet.f19_to_hyper</key>
+		<key>space_cadet.pc_application_key_to_hyper</key>
+		<integer>1</integer>
+		<key>swap_consumer.cmd_r</key>
+		<integer>1</integer>
+		<key>swap_consumer.cmd_r_plust_consumer_to_consumer</key>
+		<integer>1</integer>
+		<key>swap_consumer.consumer_keys_to_symbols</key>
+		<integer>1</integer>
+		<key>swap_consumer.consumer_keys_to_symbols2</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_escape_to_opt_f13</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_forward_delete_to_shift_cmd_ctrl_opt_f14</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_left_misc_to_f13</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_right_misc_to_f14</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_row1_to_shift_fn</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_row2_to_ctrl_fn</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_row3_to_opt_fn</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_row4_to_cmd_fn</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_space_to_option_command_f13</key>
+		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_space_to_shift_option_command_f13</key>
 		<integer>1</integer>
 		<key>uber_key.pc_app_key_as_uber_key</key>
 		<integer>1</integer>
@@ -52,5 +94,9 @@
 		<key>uber_key.uber_row4_to_cmd_fn</key>
 		<integer>1</integer>
 	</dict>
+	<key>isCheckUpdate</key>
+	<integer>2</integer>
+	<key>isShowSettingNameInStatusBar</key>
+	<false/>
 </dict>
 </plist>

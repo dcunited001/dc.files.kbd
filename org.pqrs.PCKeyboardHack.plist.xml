@@ -3,29 +3,33 @@
 <plist version="1.0">
 <dict>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>448 499 384 129 0 0 1280 778 </string>
+	<string>427 486 384 129 0 0 1280 778 </string>
 	<key>SUFeedURL</key>
-	<string>http://pqrs.org/macosx/keyremap4macbook/files/PCKeyboardHack-appcast.xml</string>
+	<string>http://pqrs.org/macosx/keyremap4macbook/files/PCKeyboardHack-appcast-devel.xml</string>
 	<key>SULastCheckTime</key>
-	<date>2012-11-20T01:57:53Z</date>
+	<date>2012-12-03T18:31:25Z</date>
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
 	<string>Lucida Grande</string>
+	<key>isCheckUpdate</key>
+	<integer>2</integer>
 	<key>sysctl</key>
 	<dict>
 		<key>enable_capslock</key>
 		<integer>1</integer>
-		<key>enable_control_r</key>
+		<key>enable_command_r</key>
 		<integer>1</integer>
 		<key>enable_escape</key>
 		<integer>1</integer>
 		<key>keycode_capslock</key>
 		<integer>53</integer>
+		<key>keycode_command_r</key>
+		<integer>55</integer>
 		<key>keycode_control_r</key>
 		<integer>59</integer>
 		<key>keycode_escape</key>
-		<integer>80</integer>
+		<integer>54</integer>
 	</dict>
 </dict>
 </plist>
