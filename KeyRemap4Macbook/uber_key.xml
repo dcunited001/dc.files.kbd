@@ -236,7 +236,22 @@
 
         <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F14, ModifierFlag::COMMAND_L | ModifierFlag::NONE </autogen>
       </item>
-    </item>
 
+      <item>
+        <name>CMD_R + Arrows => Mod + F15</name>
+        <appendix>CMD_R+Left  => SHIFT_L+F15</appendix>
+        <appendix>CMD_R+Down  => CTRL_L+F15</appendix>
+        <appendix>CMD_R+Up    => OPT_L+F15</appendix>
+        <appendix>CMD_R+Right => CMD_L+F15</appendix>
+        <appendix>(in vim order (hjkl => shift,ctrl,opt,cmd => left, down, up, right)</appendix>
+        <identifier>uber_key.cmd_r_uber_arrows_to_f15</identifier>
+
+        <autogen>--KeyToKey-- KeyCode::CURSOR_LEFT,  ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F15, ModifierFlag::SHIFT_L | ModifierFlag::NONE</autogen>
+        <autogen>--KeyToKey-- KeyCode::CURSOR_DOWN,  ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F15, ModifierFlag::CONTROL_L | ModifierFlag::NONE</autogen>
+        <autogen>--KeyToKey-- KeyCode::CURSOR_UP,    ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F15, ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen>
+        <autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::F15, ModifierFlag::COMMAND_L | ModifierFlag::NONE</autogen>
+      </item>
+
+    </item>
   </item>
 </root>
