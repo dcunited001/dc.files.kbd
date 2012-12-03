@@ -61,6 +61,8 @@
 		<integer>1</integer>
 		<key>swap_consumer.consumer_keys_to_symbols2</key>
 		<integer>1</integer>
+		<key>uber_key.cmd_r_uber_arrows_to_f15</key>
+		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_escape_to_opt_f13</key>
 		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_forward_delete_to_shift_cmd_ctrl_opt_f14</key>
