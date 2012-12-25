@@ -33,6 +33,13 @@
       </item>
 
       <item>
+        <name>Remap FN to Hyper</name>
+        <appendix>FN to Shift+Control+Option+Command</appendix>
+        <identifier>space_cadet.fn2allmods</identifier>
+        <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE</autogen>
+      </item>
+
+      <item>
         <name>Remap F19 to Hyper</name>
         <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
 

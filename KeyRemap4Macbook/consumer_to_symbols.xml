@@ -34,29 +34,28 @@
       <appendix></appendix>
       <identifier>swap_consumer.cmd_r_plust_consumer_to_consumer</identifier>
 
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::COMMAND_R | ModifierFlag::NONE, ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE</autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::COMMAND_R | ModifierFlag::NONE,   ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE</autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE, ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE</autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,   ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE</autogen>
 
-      <autogen>--KeyToKey-- KeyCode::EXPOSE_ALL, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::EXPOSE_ALL,   ModifierFlag::NONE</autogen>
-      <autogen>--KeyToKey-- KeyCode::DASHBOARD, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::DASHBOARD,     ModifierFlag::NONE</autogen>
+      <autogen>--KeyToKey-- KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::EXPOSE_ALL,   ModifierFlag::NONE</autogen>
+      <autogen>--KeyToKey-- KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::DASHBOARD,     ModifierFlag::NONE</autogen>
 
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::COMMAND_R | ModifierFlag::NONE,    ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE </autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::COMMAND_R | ModifierFlag::NONE,   ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::EXTRA1 | ModifierFlag::NONE,    ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE</autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::EXTRA1 | ModifierFlag::NONE,   ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE </autogen>
 
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::COMMAND_R | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE </autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::COMMAND_R | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::NONE </autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::COMMAND_R | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::EXTRA1 | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::EXTRA1 | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::EXTRA1 | ModifierFlag::NONE,           ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE </autogen>
 
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::COMMAND_R | ModifierFlag::NONE,          ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::NONE </autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::COMMAND_R | ModifierFlag::NONE,          ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE </autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_UP, ModifierFlag::COMMAND_R | ModifierFlag::NONE,            ConsumerKeyCode::VOLUME_UP, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::EXTRA1 | ModifierFlag::NONE,          ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE,          ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,            ConsumerKeyCode::VOLUME_UP, ModifierFlag::NONE </autogen>
     </item>
 
     <item>
       <name>COMMAND_R to Function Grid</name>
       <appendix>Changes COMMAND_R to act as an additional modifier key</appendix>
       <appendix>  (See Uber Key Options - may move that functionality here)</appendix>
-
     </item>
 
   </item>

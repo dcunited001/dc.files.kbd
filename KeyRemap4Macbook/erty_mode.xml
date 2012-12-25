@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+  <item><name>ERTY Mode</name>
+    <appendix>Removes Q/Z</appendix>
+    <appendix>Maps W => Z</appendix>
+    <appendix>Maps Symbols => Q/W</appendix>
+
+    <item><name>Basic ERTY</name>
+      <appendix>Maps Q/Z to {}</appendix>
+
+
+     
+
+  </item>
+</root>
