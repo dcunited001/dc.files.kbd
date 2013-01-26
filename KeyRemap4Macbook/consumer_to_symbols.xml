@@ -1,6 +1,139 @@
 <?xml version="1.0"?>
 <root>
 
+  <!-- CURRENT MAPPINGS -->
+
+  <!-- consumer => digits -->
+  <!-- digits   => symbols  -->
+
+  <!-- shift+consumer => (???) -->
+  <!-- shift+digits   => (???) -->
+
+  <!-- uber+consumer  => consumer -->
+  <!-- uber+digits    => f-keys -->
+
+  <item>
+    <name>Swap ConsumerKeys/Digits/Symbols/F-Keys</name>
+    <item>
+      <name>ConsumerKeys => Digits</name>
+      <identifier>swap_consumer.consumer_keys_to_digits</identifier>
+
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE,    KeyCode::KEY_1, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE,      KeyCode::KEY_2, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey--      KeyCode::EXPOSE_ALL, ModifierFlag::NONE,                 KeyCode::KEY_3, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--      KeyCode::DASHBOARD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE,  KeyCode::KEY_5, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE, KeyCode::KEY_6, ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE,         KeyCode::KEY_7, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::NONE,         KeyCode::KEY_8, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE,         KeyCode::KEY_9, ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::NONE,        KeyCode::KEY_0, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE,        KeyCode::MINUS, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_UP, ModifierFlag::NONE,          KeyCode::EQUAL, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+    </item>
+
+    <item>
+      <name>Digits => Symbols</name>
+      <identifier>swap_consumer.digits_to_symbols</identifier>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::NONE, KeyCode::KEY_1, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::NONE, KeyCode::KEY_2, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::NONE, KeyCode::KEY_3, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::NONE, KeyCode::KEY_4, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::NONE, KeyCode::KEY_5, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::NONE, KeyCode::KEY_6, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::NONE, KeyCode::KEY_7, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::NONE, KeyCode::KEY_8, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::NONE, KeyCode::KEY_9, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::NONE, KeyCode::KEY_0, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::NONE, KeyCode::MINUS, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::NONE, KeyCode::EQUAL, ModifierFlag::NONE </autogen>
+    </item>
+
+    <item>
+      <name>Uber+ConsumerKeys => ConsumerKeys</name>
+      <identifier>swap_consumer.uber_consumer_keys_to_consumer_keys</identifier>
+
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE,    ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,      ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey--           KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE,                 KeyCode::EXPOSE_ALL, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--           KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE,                  KeyCode::DASHBOARD, ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::EXTRA1 | ModifierFlag::NONE,  ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::EXTRA1 | ModifierFlag::NONE, ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::EXTRA1 | ModifierFlag::NONE,         ConsumerKeyCode::MUSIC_PREV,  ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::EXTRA1 | ModifierFlag::NONE,         ConsumerKeyCode::MUSIC_PLAY,  ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::EXTRA1 | ModifierFlag::NONE,         ConsumerKeyCode::MUSIC_NEXT,  ModifierFlag::NONE </autogen>
+
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::EXTRA1 | ModifierFlag::NONE,        ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE,        ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE </autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::VOLUME_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,          ConsumerKeyCode::VOLUME_UP,   ModifierFlag::NONE </autogen>
+    </item>
+
+    <item>
+      <name>Uber+Digits => Shift+Fn Keys</name>
+      <identifier>swap_consumer.uber_digits_to_fn_keys</identifier>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F11, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F12, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+    </item>
+
+    <item>
+      <name>Shift+Digits => Fn Keys</name>
+      <identifier>swap_consumer.shift_digits_to_whoknows</identifier>
+      <appendix>Still trying to figure out what this would do</appendix>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F3, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F4, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F6, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F7, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F8, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F9, ModifierFlag::NONE </autogen>
+
+      <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F10, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F11, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::F12, ModifierFlag::NONE </autogen>
+    </item>
+
+    <item>
+      <name>Shift+Consumers => (???)</name>
+      <identifier>swap_consumer.shift_consumers_to_whoknows</identifier>
+      <appendix>Still trying to figure out what this would do</appendix>
+
+    </item>
+
+  </item>
+
   <item>
     <name>Swap Consumer Keys with Symbols</name>
 
@@ -34,11 +167,11 @@
       <appendix></appendix>
       <identifier>swap_consumer.cmd_r_plust_consumer_to_consumer</identifier>
 
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE, ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE</autogen>
-      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,   ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE</autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::EXTRA1 | ModifierFlag::NONE,      ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE</autogen>
+      <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,        ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE</autogen>
 
-      <autogen>--KeyToKey-- KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::EXPOSE_ALL,   ModifierFlag::NONE</autogen>
-      <autogen>--KeyToKey-- KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::DASHBOARD,     ModifierFlag::NONE</autogen>
+      <autogen>--KeyToKey-- KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::EXPOSE_ALL,        ModifierFlag::NONE</autogen>
+      <autogen>--KeyToKey-- KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::DASHBOARD,          ModifierFlag::NONE</autogen>
 
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::EXTRA1 | ModifierFlag::NONE,    ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE</autogen>
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::EXTRA1 | ModifierFlag::NONE,   ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE </autogen>

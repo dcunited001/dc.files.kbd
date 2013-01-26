@@ -25,6 +25,23 @@
       <appendix>Must unmap all Mac OS X level F-key shortcuts (none are useful)</appendix>
 
       <item>
+        <name>EXTRA1+[1-90-=] mapped to F1-F12)</name>
+        <identifier>uber_key.cmd_r_uber_row1_to_fn</identifier>
+        <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F1</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F2</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F3</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F4</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F5</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F6</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F7</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F8</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F9</autogen>
+        <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F10</autogen>
+        <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F11</autogen>
+        <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F12</autogen>
+      </item>
+
+      <item>
         <name>EXTRA1+[1-90-=] mapped to Shift+F1-F12)</name>
         <identifier>uber_key.cmd_r_uber_row1_to_shift_fn</identifier>
         <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::SHIFT_L</autogen>
