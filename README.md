@@ -6,6 +6,8 @@ This is my Keyboard Layout, which I've spent a considerable amount of time refin
 > On OSX: you will need to install KeyRemap4MacBook, PCKeyboardHack, and NoEjectDelay.  
 > They are all free and have awesome default settings, regardless of whether you add my private.xml settings.
 
+![ScreenShot](https://raw.github.com/dcunited001/dc.files.kbd/master/dc-keyboard.jpg)
+
 ### To Install:
 - Install KeyRemap4MacBook, PCKeyboardHack, and NoEjectDelay.
 - Restart your computer multiple times!
