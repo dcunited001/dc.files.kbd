@@ -45,6 +45,15 @@
 ;;==============================;;
 (global-set-key "\M-`" 'next-multiframe-window)
 
+;; Ergo Emacs iBuffer mappings
+;(global-set-key (kbd "<C-o>") 'find-file) ; Open file or dir
+;(global-set-key (kbd "<C-w>") 'kill-this-buffer) ; Close file
+
+;(global-set-key (kbd "<C-prior>") 'previous-user-buffer) ; Ctrl+PageUp
+;(global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
+;(global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
+;(global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
+
 ;;==============================;;
 ;; My Key Bindings
 ;;==============================;;
