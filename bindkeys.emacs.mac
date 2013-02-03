@@ -26,11 +26,6 @@
 (ergoemacs-mode)
 ;(ergoemacs-mode 1) ;emacs minor mode
 
-;;fix arrow keys - wtf ergoemacs haha
-;;  (this fix is not working)
-;;(global-set-key (kbd "\M-O A") 'previous-line)
-;;(global-set-key (kbd "<M-O B>") 'next-line)
-
 ;;==============================;;
 ;; Text
 ;;==============================;;
