@@ -20,6 +20,18 @@
 ;; Codin' it on up now, boss.
 
 ;;==============================;;
+;; Ergoemacs
+;;==============================;;
+(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
+(ergoemacs-mode)
+;(ergoemacs-mode 1) ;emacs minor mode
+
+;;fix arrow keys - wtf ergoemacs haha
+;;  (this fix is not working)
+;;(global-set-key (kbd "\M-O A") 'previous-line)
+;;(global-set-key (kbd "<M-O B>") 'next-line)
+
+;;==============================;;
 ;; Text
 ;;==============================;;
 (global-set-key (kbd "\C-x w") 'wrap-no-lines)
@@ -45,6 +57,7 @@
 ;;==============================;;
 (global-set-key "\M-`" 'next-multiframe-window)
 
+;; TODO: set iBuffer mappings
 ;; Ergo Emacs iBuffer mappings
 ;(global-set-key (kbd "<C-o>") 'find-file) ; Open file or dir
 ;(global-set-key (kbd "<C-w>") 'kill-this-buffer) ; Close file
@@ -53,6 +66,14 @@
 ;(global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
 ;(global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
 ;(global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
+
+
+;;==============================;;
+;; My Key Bindings
+;;==============================;;
+
+;; TODO: set gist hotkey
+; (global-set-key (kbd "<f8>") 'gist-region-or-buffer)
 
 ;;==============================;;
 ;; My Key Bindings
