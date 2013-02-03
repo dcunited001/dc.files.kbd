@@ -6,7 +6,53 @@
     <appendix>trishume - https://gist.github.com/4135580</appendix>
 
     <item>
-      <name>as Control + Shift + Option + Command</name>
+      <name>as Control + Option + Command (Shiftable Hyper)</name>
+
+      <item>
+        <name>Remap Left Control to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.left_control_to_shiftable_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::CONTROL_L, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L</autogen>
+      </item>
+
+      <item>
+        <name>Remap Right Control to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps Right Control to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.right_control_to_shiftable_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap PC Application Key to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.pc_application_key_to_shiftable_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap FN to Hyper</name>
+        <appendix>FN to Shift+Control+Option+Command</appendix>
+
+        <identifier>space_cadet.fn_to_shiftable_hyper</identifier>
+        <!-- hmmmm.. do i need ModFlag::None here?? -->
+        <!-- <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen> -->
+        <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
+      </item>
+
+      <item>
+        <name>Remap F19 to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
+
+        <identifier>space_cadet.f19_to_shiftable_hyper</identifier>
+        <autogen>--KeyToKey-- KeyCode::F19, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
+      </item>
+    </item>
+
+    <item>
+      <name>as Control + Option + Command + Shift</name>
 
       <item>
         <name>Remap Left Control to Hyper</name>
@@ -35,7 +81,8 @@
       <item>
         <name>Remap FN to Hyper</name>
         <appendix>FN to Shift+Control+Option+Command</appendix>
-        <identifier>space_cadet.fn2allmods</identifier>
+
+        <identifier>space_cadet.fn_to_hyper</identifier>
         <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE</autogen>
       </item>
 
@@ -55,6 +102,6 @@
       <identifier>space_cadet.hyper_pause</identifier>
       <autogen>--KeyToConsumer-- KeyCode::P, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, ConsumerKeyCode::MUSIC_PLAY</autogen>
     </item>
-  </item>
 
+  </item>
 </root>
