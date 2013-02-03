@@ -27,9 +27,23 @@
 ;(ergoemacs-mode 1) ;emacs minor mode
 
 ;;==============================;;
+;; Text Nav
+;;==============================;;
+(global-set-key (kbd "<\M-[ H>") 'beginning-of-line)
+(global-set-key "\M-[ F" 'end-of-line)
+
+;;==============================;;
 ;; Text
 ;;==============================;;
 (global-set-key (kbd "\C-x w") 'wrap-no-lines)
+
+;; Remap the Esc. Sequences for Home & End
+(unless window-system
+  (define-key input-decode-map "[H" [home])
+  (define-key input-decode-map "[F" [end]))
+
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
 
 ;;==============================;;
 ;; Hyper Key
@@ -61,7 +75,6 @@
 ;(global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
 ;(global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
 ;(global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
-
 
 ;;==============================;;
 ;; My Key Bindings
