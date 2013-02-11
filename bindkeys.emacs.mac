@@ -96,6 +96,11 @@
 ;; (global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
 
 ;;==============================;;
+;; Twittering-mode
+;;==============================;;
+(global-set-key (kbd "H-C-t") 'twit)
+
+;;==============================;;
 ;; Rails - Rinari/MaMuMo
 ;;==============================;;
 (global-set-key (kbd "H-C-r") 'rinari-launch)
