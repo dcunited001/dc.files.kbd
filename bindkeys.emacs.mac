@@ -109,13 +109,13 @@
 ;;
 ;; Function                  Default Binding    New Binding
 ;; ========                  ===============    ===========
-;; rinari-find-controller    C-c ; f c          M-r c
-;; rinari-web-server         C-c ; w            M-R w
+;; rinari-find-controller    C-c ; f c          H-r c
+;; rinari-web-server         C-c ; w            H-R w
 (add-hook 'rinari-minor-mode-hook (lambda ()
   (define-prefix-command 'pd-rinari-map1)
   (define-prefix-command 'pd-rinari-map2)
-  (local-set-key (kbd "M-R") 'pd-rinari-map1)
-  (local-set-key (kbd "M-r") 'pd-rinari-map2)
+  (local-set-key (kbd "H-R") 'pd-rinari-map1)
+  (local-set-key (kbd "H-r") 'pd-rinari-map2)
 
   (define-key pd-rinari-map1 "'" 'rinari-find-by-context)
   (define-key pd-rinari-map1 ";" 'rinari-find-by-context)
