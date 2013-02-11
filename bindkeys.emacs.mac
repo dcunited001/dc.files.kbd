@@ -98,6 +98,7 @@
 ;;==============================;;
 ;; Rails - Rinari/MaMuMo
 ;;==============================;;
+(global-set-key (kbd "H-C-r") 'rinari-launch)
 
 ;; When Rinari mode is loaded, add extra bindings to its key map enabling the
 ;; use of M-R and M-r as its prefixes. The easier to type M-r is used for the
