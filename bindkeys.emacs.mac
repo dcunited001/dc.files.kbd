@@ -25,6 +25,7 @@
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (ergoemacs-mode)
 ;(ergoemacs-mode 1) ;emacs minor mode
+;;http://ergoemacs.org/emacs/keystroke_rep.html
 
 ;;==============================;;
 ;; Text Nav
@@ -46,6 +47,34 @@
 (global-set-key (kbd "<end>") 'move-end-of-line)
 
 ;;==============================;;
+;; SEARCH AND REPLACE
+;;==============================;;
+
+;; CANNOT EMPHASIZE THESE ENOUGH
+
+;; TODO: ack
+;; TODO: find
+
+;; TODO: isearch-forward-regexp
+;; TODO: isearch-backward-regexp
+
+;;==============================;;
+;; Buffers/Frames/Windows
+;;==============================;;
+(global-set-key "\M-`" 'next-multiframe-window)
+;; TODO: previous buffer
+
+;; TODO: set iBuffer mappings
+;; Ergo Emacs iBuffer mappings
+;; (global-set-key (kbd "<C-o>") 'find-file) ; Open file or dir
+;; (global-set-key (kbd "<C-w>") 'kill-this-buffer) ; Close file
+
+;; (global-set-key (kbd "<C-prior>") 'previous-user-buffer) ; Ctrl+PageUp
+;; (global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
+;; (global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
+;; (global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
+
+;;==============================;;
 ;; Hyper Key
 ;;==============================;;
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
@@ -59,8 +88,33 @@
 ;;(define-key function-key-map (kbd "<f20>") 'event-apply-hyper-modifier)
 
 ;;==============================;;
+;; HYPER-CONTROL
+;;==============================;;
+
+;; QUICK MODE CHANGE
+;; TODO: find a few more keys here
+(global-set-key (kbd "H-g") 'magit-status)       ;; MAGIT (why does H-C-g not work?)
+(global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
+(global-set-key (kbd "H-C-d") 'ido-dired)        ;; DIRED
+(global-set-key (kbd "H-C-b") 'ibuffer)          ;; IBUFFER
+(global-set-key (kbd "H-C-t") 'twit)             ;; TWITTER
+
+;; EVAL REGION
+(global-set-key (kbd "H-RET") 'eval-region)
+
+;; HELP
+;; TODO: find a different modkey combo?
+(global-set-key (kbd "H-C-m") 'describe-mode)            ;; DESCRIBE MODE
+(global-set-key (kbd "H-C-K") 'describe-key)             ;; DESCRIBE KEY
+(global-set-key (kbd "H-C-k") 'Helper-describe-bindings) ;; DESCRIBE BINDINGS
+
+;;==============================;;
 ;; Super Key
 ;;==============================;;
+;; TODO: remap forward-delete to [???] in iTerm only
+;; TODO: remap [???] to Toggle Super Key
+;; TODO: map Super+[1,2,3,..] to navigate buffer/frame/windows
+
 ;; modifier keys can be configured using these:
 ;; (setq mac-option-modifier 'meta)
 ;; (setq mac-control-modifier 'ctrl)
@@ -81,30 +135,8 @@
 ;; (setq mac-pass-control-to-system nil)
 
 ;;==============================;;
-;; Buffers/Frames/Windows
-;;==============================;;
-(global-set-key "\M-`" 'next-multiframe-window)
-
-;; TODO: set iBuffer mappings
-;; Ergo Emacs iBuffer mappings
-;; (global-set-key (kbd "<C-o>") 'find-file) ; Open file or dir
-;; (global-set-key (kbd "<C-w>") 'kill-this-buffer) ; Close file
-
-;; (global-set-key (kbd "<C-prior>") 'previous-user-buffer) ; Ctrl+PageUp
-;; (global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
-;; (global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
-;; (global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
-
-;;==============================;;
-;; Twittering-mode
-;;==============================;;
-(global-set-key (kbd "H-C-t") 'twit)
-
-;;==============================;;
 ;; Rails - Rinari/MaMuMo
 ;;==============================;;
-(global-set-key (kbd "H-C-r") 'rinari-launch)
-
 ;; When Rinari mode is loaded, add extra bindings to its key map enabling the
 ;; use of M-R and M-r as its prefixes. The easier to type M-r is used for the
 ;; frequently used `find' functions and M-R is used for the more infrequently
