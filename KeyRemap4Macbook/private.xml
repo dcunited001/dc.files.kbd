@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root>
+  <include path="uber_key.xml" />
+  <include path="custom_eject.xml"/>
+  <include path="consumer_to_symbols.xml"/>
+  <include path="v_hyper_key.xml" />
+  <include path="custom_misc.xml" />
+
+  <!-- removes q & z, maps w to z, & more -->
+  <!--<include path="erty_mode.xml" />-->
+
+  <!-- <include path="double_press.xml" /> -->
+  <!-- <include path="paren_shift.xml" /> -->
+
+  <!-- <include path="custom_swap.xml" /> -->
+
+
+  <!-- see PC Remap Config -->
+  <!-- caps <=> escape -->
+  <!-- control_r => control_l -->
+  <!-- escape => F19 -->
+
+</root>
