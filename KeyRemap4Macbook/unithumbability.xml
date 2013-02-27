@@ -57,13 +57,13 @@
         <appendix>So you actually learn the new ones!</appendix>
         <identifier>private.misc_simul_space_chars_disable</identifier>
         <!-- TODO: add SHIFT_R rules -->
-        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, ModifierFlag::NONE, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::NONE, ModifierFlag::SHIFT_L</autogen>
       </item>
 
     </item>
