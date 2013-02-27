@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>Unithumbability</name>
+
+    <item>
+      <name>Space to Underscore</name>
+
+      <item>
+        <name>Shift-Space to Underscore</name>
+        <identifier>private.misc_shift_space_to_underscore</identifier>
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
+      </item>
+
+      <item>
+        <name>Cmd-Space to Underscore</name>
+        <identifier>private.misc_cmd_space_to_underscore</identifier>
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
+      </item>
+
+      <item>
+        <name>Simultaneous Shift-Space to Underscore</name>
+        <identifier>private.misc_simul_shift_space_to_underscore</identifier>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::SHIFT_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::SHIFT_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
+      </item>
+
+      <item>
+        <name>Simultaneous Cmd-Space to Underscore</name>
+        <identifier>private.misc_simul_cmd_space_to_underscore</identifier>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::COMMAND_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::COMMAND_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
+      </item>
+    </item>
+
+    <item>
+      <name>Simultaneous Space</name>
+
+      <item>
+        <name>Simultaneous Space+[XCVBNM,] to [&lt;{~"|}&gt;]</name>
+        <appendix>The chars are annoyingly hard to reach in the shell</appendix>
+        <identifier>private.misc_simul_space_chars</identifier>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::X, KeyCode::COMMA, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::C, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::V, KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::B, KeyCode::QUOTE, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::N, KeyCode::BACKSLASH, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::M, KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__SimultaneousKeyPresses__ KeyCode::SPACE, KeyCode::COMMA, KeyCode::DOT, ModifierFlag::SHIFT_L</autogen>
+      </item>
+
+      <item>
+        <name>Disable the normal keymappings for [&lt;{~"|}&gt;]</name>
+        <appendix>So you actually learn the new ones!</appendix>
+        <identifier>private.misc_simul_space_chars_disable</identifier>
+        <!-- TODO: add SHIFT_R rules -->
+        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::SHIFT_L</autogen>
+      </item>
+
+    </item>
+  </item>
+</root>

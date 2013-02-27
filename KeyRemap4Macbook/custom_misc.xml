@@ -5,20 +5,6 @@
     <name>Custom Misc</name>
 
     <item>
-      <name>Shift-Space to Underscore</name>
-      <identifier>private.misc_shift_space_to_underscore</identifier>
-      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
-      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
-    </item>
-
-    <item>
-      <name>Cmd-Space to Underscore</name>
-      <identifier>private.misc_cmd_space_to_underscore</identifier>
-      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
-      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
-    </item>
-
-    <item>
       <name>Fn keys for iterm</name>
       <identifier>private.fn_keys_for_iterm</identifier>
       <appendix>Set F1-2, F5-6, F8, F11-12</appendix>

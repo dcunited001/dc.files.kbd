@@ -4,6 +4,7 @@
   <include path="custom_eject.xml"/>
   <include path="consumer_to_symbols.xml"/>
   <include path="v_hyper_key.xml" />
+  <include path="unithumbability.xml" />
   <include path="custom_misc.xml" />
 
   <!-- removes q & z, maps w to z, & more -->
