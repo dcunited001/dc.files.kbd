@@ -6,7 +6,9 @@
 
     <item>
       <name>Shift-Space to Underscore</name>
-      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_L, KeyCode::UNDERSCORE</autogen>
+      <identifier>private.misc_shift_space_to_underscore</identifier>
+      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_L, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
     </item>
 
     <item>
