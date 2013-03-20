@@ -19,98 +19,235 @@
 
 ;; Codin' it on up now, boss.
 
-;;==============================;;
-;; Ergoemacs
-;;==============================;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; TODO: setup anchor text to insert new keybindings at specific locations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___ERGOEMACS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TODO: learn dvorak
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (ergoemacs-mode)
-;(ergoemacs-mode 1) ;emacs minor mode
+
+;;(ergoemacs-mode 1) ;emacs minor mode
 ;;http://ergoemacs.org/emacs/keystroke_rep.html
 
-;;==============================;;
-;; Text Nav
-;;==============================;;
-(global-set-key (kbd "<\M-[ H>") 'beginning-of-line)
-(global-set-key "\M-[ F" 'end-of-line)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___REMAPKEYS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;==============================;;
-;; Text
-;;==============================;;
-(global-set-key (kbd "\C-x w") 'wrap-no-lines)
-
-;; Remap the Esc. Sequences for Home & End
+;; need to keep the unless?
+;; FIXME: not running when emacs is daemonized
+;;   and apparently it's not the unless
 (unless window-system
+  ;; Remap the Esc. Sequences for Home & End
   (define-key input-decode-map "[H" [home])
   (define-key input-decode-map "[F" [end]))
 
-(global-set-key (kbd "<home>") 'move-beginning-of-line)
-(global-set-key (kbd "<end>") 'move-end-of-line)
-
-;;==============================;;
-;; SEARCH AND REPLACE
-;;==============================;;
-
-;; CANNOT EMPHASIZE THESE ENOUGH
-
-;; TODO: ack
-;; TODO: find
-
-;; TODO: isearch-forward-regexp
-;; TODO: isearch-backward-regexp
-
-;;==============================;;
-;; Buffers/Frames/Windows
-;;==============================;;
-(global-set-key "\M-`" 'next-multiframe-window)
-;; TODO: previous buffer
-
-;; TODO: set iBuffer mappings
-;; Ergo Emacs iBuffer mappings
-;; (global-set-key (kbd "<C-o>") 'find-file) ; Open file or dir
-;; (global-set-key (kbd "<C-w>") 'kill-this-buffer) ; Close file
-
-;; (global-set-key (kbd "<C-prior>") 'previous-user-buffer) ; Ctrl+PageUp
-;; (global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
-;; (global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
-;; (global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
-
-;;==============================;;
-;; Hyper Key
-;;==============================;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___HYPERKEY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
 
 ;; when FN => PC_APPLICATION_KEY
 (global-unset-key "\C-p") ;; print .. from emacs .. really?
-(define-key function-key-map (kbd "\C-p") 'event-apply-hyper-modifier)
+(define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier)
 
 ;; alternate configuration with PC_APPLICATION_KEY (p) => f20
 ;;(define-key input-decode-map "p" [f20])
 ;;(define-key function-key-map (kbd "<f20>") 'event-apply-hyper-modifier)
 
-;;==============================;;
-;; HYPER-CONTROL
-;;==============================;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXTNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; QUICK MODE CHANGE
+(global-set-key (kbd "M-l") 'goto-line) ;; ergoemacs 'forward-char
+
+(global-set-key (kbd "<home>") 'beginning-of-line) ;; need slash?
+(global-set-key (kbd "<end>") 'end-of-line) ;; need slash?
+
+;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
+;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
+
+
+;; beginning-of-buffer
+;; beginning-of-buffer-other-window
+;; beginning-of-defun
+;; beginning-of-defun-raw
+;; beginning-of-line
+;; beginning-of-line-text
+;; beginning-of-sas-proc
+;; beginning-of-sas-stateme
+;; beginning-of-visual-line
+;; ergoemacs-beginning-of-block
+;; ergoemacs-isearch-move-beginning-of-line
+;; ergoemacs-move-beginning-of-line
+
+;; opt+(l/r) => skip by word (not including underscores)
+;; ctrl+(l/r) => skip by word (including underscores, etc)
+;; hyper+(l/r) => ??
+
+;; opt+(u/d) =>
+;; ctrl+(u/d) =>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXTWORK
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; text manipulations (comment/indent/etc)
+
+;; need to remap
+;;(global-unset-key (kbd "C-S-<up>")) ;; move line up
+;;(global-unset-key (kbd "C-S-<down>")) ;; move line down
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-x w") 'wrap-no-lines)
+
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SEARCH
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; isearch
+(global-set-key (kbd "H-f") 'isearch-forward)
+(global-set-key (kbd "C-f") 'isearch-repeat-forward)
+
+(global-set-key (kbd "H-F") 'isearch-backward)
+(global-set-key (kbd "C-F") 'isearch-repeat-backward)
+
+;; isearch-toggle-case-fold      M-c
+;; isearch-toggle-regexp         M-r
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___REPLACE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-R _") 'isearch-query-replace)
+(global-set-key (kbd "H-R SPC") 'isearch-query-replace-regexp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___PROJECTILE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___FILENAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-o") 'projectile-recentf)
+(global-set-key (kbd "H-t") 'projectile-toggle-between-implementation-and-test)
+(global-set-key (kbd "H-T") 'projectile-find-test-file)
+(global-set-key (kbd "H-p t") 'projectile-test-project)
+(global-set-key (kbd "H-d") 'ido-dired)        ;; DIRED
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___PROJECTILESEARCH
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-g") 'projectile-grep)
+(global-set-key (kbd "H-r") 'projectile-replace)
+(global-set-key (kbd "H-a") 'projectile-ack)
+(global-set-key (kbd "H-p o") 'projectile-multi-occur)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___BUFFERNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-b") 'ido-switch-buffer)
+(global-set-key (kbd "H-B") 'ibuffer)
+(global-set-key (kbd "H-k") 'projectile-kill-buffers)
+;;(global-set-key (kbd "H-b") 'projectile-switch-to-buffer)
+
+(global-set-key (kbd "M-`") 'next-user-buffer)
+(global-set-key (kbd "M-~") 'previous-user-buffer)
+;; next-emacs-buffer
+;; previous-emacs-buffer
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___WINDOWNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; next-multiframe-window switches to the next window
+;;   regardless of which frame it's on
+;;(global-set-key (kbd "C-`") 'next-multiframe-window)
+;;(global-set-key (kbd "C-~") 'previous-multiframe-window)
+;; should use windmove instead
+
+;; (windmove-default-keybindings)
+(global-set-key (kbd "<C-S-up>") 'windmove-up)
+(global-set-key (kbd "<C-S-down>") 'windmove-down)
+(global-set-key (kbd "<C-S-left>") 'windmove-left)
+(global-set-key (kbd "<C-S-right>") 'windmove-right)
+
+;; why is shift-up mapped to <select>??
+(global-set-key (kbd "<select>") 'windmove-up)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___FRAMENAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;'ergoemacs-switch-to-next-frame
+;;'ergoemacs-switch-to-prev-frame
+(global-set-key (kbd "H-`") 'new-frame)
+
+;; FIXME: why doesn't C-` work with emacs??
+;;(global-set-key (kbd "C-`") 'ns-next-frame)
+;;(global-set-key (kbd "C-~") 'ns-prev-frame)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TAGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-p R") 'projectile-regenerate-tags)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___LISPEVAL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set to emacs-lisp-mode only?
+
+;;(global-set-key (kbd "H-RET") 'eval-region)
+(global-set-key (kbd "H-X") 'eval-region)
+(global-set-key (kbd "H-x s") 'eval-last-sexp)
+(global-set-key (kbd "H-x p") 'eval-print-last-sexp)
+(global-set-key (kbd "H-x r") 'eval-region)
+(global-set-key (kbd "H-x e") 'eval-expression)
+(global-set-key (kbd "H-x b") 'eval-buffer)
+(global-set-key (kbd "H-x d") 'eval-defun-2) ;; or eval-defun?
+
+;; prelude-eval-and-replace - eval and replace region with result
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SHELL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "H-s") 'shell-command)
+(global-set-key (kbd "H-S") 'ansi-term)
+;; sh-beginning-of-command
+;; sh-end-of-command
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___MAGIT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO: find a few more keys here
-(global-set-key (kbd "H-g") 'magit-status)       ;; MAGIT (why does H-C-g not work?)
+(global-set-key (kbd "H-G") 'magit-status)       ;; MAGIT (why does H-C-g not work?)
 (global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
-(global-set-key (kbd "H-C-d") 'ido-dired)        ;; DIRED
-(global-set-key (kbd "H-C-b") 'ibuffer)          ;; IBUFFER
-(global-set-key (kbd "H-C-t") 'twit)             ;; TWITTER
 
-;; EVAL REGION
-(global-set-key (kbd "H-RET") 'eval-region)
-
-;; HELP
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___HELP
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO: find a different modkey combo?
 (global-set-key (kbd "H-C-m") 'describe-mode)            ;; DESCRIBE MODE
 (global-set-key (kbd "H-C-K") 'describe-key)             ;; DESCRIBE KEY
 (global-set-key (kbd "H-C-k") 'Helper-describe-bindings) ;; DESCRIBE BINDINGS
 
-;;==============================;;
-;; Super Key
-;;==============================;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SUPERKEY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO: remap forward-delete to [???] in iTerm only
 ;; TODO: remap [???] to Toggle Super Key
 ;; TODO: map Super+[1,2,3,..] to navigate buffer/frame/windows
@@ -134,9 +271,19 @@
 ;; (setq mac-pass-command-to-system) ;enable/disable?
 ;; (setq mac-pass-control-to-system nil)
 
-;;==============================;;
-;; Rails - Rinari/MaMuMo
-;;==============================;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___RUBY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ruby-beginning-of-defun
+;; ruby-beginning-of-block
+;; ruby-end-of-defun
+;; ruby-end-of-block
+
+;; ruby send defuns??
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___RINARI
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; When Rinari mode is loaded, add extra bindings to its key map enabling the
 ;; use of M-R and M-r as its prefixes. The easier to type M-r is used for the
 ;; frequently used `find' functions and M-R is used for the more infrequently
@@ -152,8 +299,8 @@
 (add-hook 'rinari-minor-mode-hook (lambda ()
   (define-prefix-command 'pd-rinari-map1)
   (define-prefix-command 'pd-rinari-map2)
-  (local-set-key (kbd "H-R") 'pd-rinari-map1)
-  (local-set-key (kbd "H-r") 'pd-rinari-map2)
+  (local-set-key (kbd "H-C-R") 'pd-rinari-map1)
+  (local-set-key (kbd "H-C-r") 'pd-rinari-map2)
 
   (define-key pd-rinari-map1 "'" 'rinari-find-by-context)
   (define-key pd-rinari-map1 ";" 'rinari-find-by-context)
@@ -196,6 +343,11 @@
   (define-key pd-rinari-map2 "x" 'rinari-find-fixture)
   (define-key pd-rinari-map2 "y" 'rinari-find-stylesheet)
   (define-key pd-rinari-map2 "z" 'rinari-find-rspec-fixture)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___MISC
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "H-C-t") 'twit)             ;; TWITTER
 
 ;;==============================;;
 ;; My Key Bindings
