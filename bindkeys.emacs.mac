@@ -46,6 +46,13 @@
   (define-key input-decode-map "[H" [home])
   (define-key input-decode-map "[F" [end]))
 
+;; (if window-system
+;;   ;; TODO: fix a few issues with remapping escape (marking text)
+;;   ;; Set escape as meta (only mapped in iTerm)
+;;   ;; (global-set-key (kbd "<escape>") 'execute-extended-command)
+;;   (global-unset-key (kbd "<escape>"))
+;;   (define-key function-key-map (kbd "<escape>") 'event-apply-meta-modifier))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HYPERKEY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -155,7 +162,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (global-set-key (kbd "H-g") 'projectile-grep)
-(global-set-key (kbd "H-r") 'projectile-replace)
+;; TODO: move projectile-replace
+;;(global-set-key (kbd "H-r") 'projectile-replace)
 (global-set-key (kbd "H-a") 'projectile-ack)
 (global-set-key (kbd "H-p o") 'projectile-multi-occur)
 
@@ -239,7 +247,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO: find a few more keys here
 (global-set-key (kbd "H-G") 'magit-status)       ;; MAGIT (why does H-C-g not work?)
-(global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
+;;(global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HELP
@@ -303,8 +311,8 @@
 (add-hook 'rinari-minor-mode-hook (lambda ()
   (define-prefix-command 'pd-rinari-map1)
   (define-prefix-command 'pd-rinari-map2)
-  (local-set-key (kbd "H-C-R") 'pd-rinari-map1)
-  (local-set-key (kbd "H-C-r") 'pd-rinari-map2)
+  (local-set-key (kbd "H-R") 'pd-rinari-map1)
+  (local-set-key (kbd "H-r") 'pd-rinari-map2)
 
   (define-key pd-rinari-map1 "'" 'rinari-find-by-context)
   (define-key pd-rinari-map1 ";" 'rinari-find-by-context)
