@@ -21,4 +21,16 @@
   <!-- control_r => control_l -->
   <!-- escape => F19 -->
 
+  <item>
+    <name>Emacs GUI</name>
+    <item>
+      <name>Remap Escape to Option</name>
+      <identifier>emacs_gui.remap_escape_to_option</identifier>
+
+      <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::NONE, KeyCode::OPTION_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::OPTION_L, KeyCode::ESCAPE</autogen>
+      <only>EMACS</only>
+    </item>
+  </item>
+
 </root>

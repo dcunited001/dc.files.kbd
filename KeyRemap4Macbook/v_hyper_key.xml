@@ -4,7 +4,7 @@
   <item>
     <name>VHyperKey</name>
     <appendix>trishume - https://gist.github.com/4135580</appendix>
-
+S
     <item>
       <name>as PC Application Key</name>
 
@@ -66,7 +66,7 @@
         <appendix>OS X doesn't have a Hyper. This maps PC App Key to Control + Shift + Option + Command.</appendix>
 
         <identifier>vhyper.f19_to_shiftable_hyper</identifier>
-        <autogen>--KeyToKey-- KeyCode::F19, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
+        <autogen>--Key-- KeyCode::F19, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
       </item>
     </item>
 
