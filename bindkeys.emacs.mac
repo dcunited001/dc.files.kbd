@@ -26,13 +26,21 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___ERGOEMACS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; loading from package-install is failing because the filename symbol can't be resolved 
+(require 'ergoemacs-mode)
 
-;; TODO: learn dvorak
+;; load locally from git submodule instead
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (ergoemacs-mode)
+;;(load-file "~/.emacs.d/personal/ergoemacs/site-lisp/site-start.el")
 
 ;;(ergoemacs-mode 1) ;emacs minor mode
 ;;http://ergoemacs.org/emacs/keystroke_rep.html
+;;http://ergoemacs.org/emacs/keystroke_rep.html
+
+;; unbind smex from M-X ;; wtf seriously?
+(global-unset-key (kbd "M-x"))
+(global-set-key (kbd "M-x") 'ergoemacs-copy-line-or-region)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___REMAPKEYS
