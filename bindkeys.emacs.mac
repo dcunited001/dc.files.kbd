@@ -41,6 +41,7 @@
 ;; unbind smex from M-X ;; wtf seriously?
 (global-unset-key (kbd "M-x"))
 (global-set-key (kbd "M-x") 'ergoemacs-copy-line-or-region)
+;; ..... cut still doesn't work... wtf
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___REMAPKEYS
