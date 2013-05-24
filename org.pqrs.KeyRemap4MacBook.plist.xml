@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>446 486 384 129 0 0 1280 778 </string>
+	<string>594 221 384 129 0 0 1280 778 </string>
 	<key>SUFeedURL</key>
 	<string>https://pqrs.org/macosx/keyremap4macbook/files/appcast-devel.xml</string>
 	<key>SULastCheckTime</key>
-	<date>2013-05-21T02:13:43Z</date>
+	<date>2013-05-23T16:19:02Z</date>
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
@@ -16,56 +16,72 @@
 	<array>
 		<dict>
 			<key>identify</key>
-			<string>config_1356445434_44497</string>
+			<string>config_1352983173_71620</string>
 			<key>name</key>
 			<string>Default</string>
 		</dict>
 	</array>
-	<key>config_1356445434_44497</key>
+	<key>config_1352983173_71620</key>
 	<dict>
-		<key>emacs_gui.remap_escape_to_option</key>
+		<key>general.disable_numpad_hack</key>
+		<integer>1</integer>
+		<key>mac_vhyper.pc_app_key_as_virtual_hyper</key>
 		<integer>1</integer>
 		<key>notsave.automatically_enable_keyboard_device</key>
 		<integer>1</integer>
 		<key>notsave.automatically_enable_pointing_device</key>
 		<integer>1</integer>
-		<key>private.misc_cmd_space_to_underscore</key>
+		<key>notsave.fn2allmods</key>
 		<integer>1</integer>
-		<key>private.misc_disable_underscore</key>
+		<key>paren_shift.cmd_shifts_to_square_parens</key>
+		<integer>1</integer>
+		<key>paren_shift.opt_shifts_to_curly_parens</key>
+		<integer>1</integer>
+		<key>paren_shift.shifts_to_parens</key>
+		<integer>1</integer>
+		<key>private.cmd_shifts_to_square_parens</key>
 		<integer>1</integer>
 		<key>private.misc_shift_space_to_underscore</key>
 		<integer>1</integer>
-		<key>private.misc_simul_cmd_space_to_underscore</key>
-		<integer>1</integer>
 		<key>private.misc_simul_space_chars</key>
 		<integer>1</integer>
-		<key>remap.eject2f19plusforwarddelete</key>
+		<key>private.my_custom_setting</key>
 		<integer>1</integer>
-		<key>remap.f5_f6_to_functional_all</key>
+		<key>private.opt_shifts_to_curly_parens</key>
+		<integer>1</integer>
+		<key>private.shifts_to_parens</key>
+		<integer>1</integer>
+		<key>remap.eject2forwarddelete_retain_fnEject</key>
+		<integer>1</integer>
+		<key>remap.enable_fn2allmods</key>
+		<integer>1</integer>
+		<key>remap.shiftDelete2forwarddelete_nomodifiers</key>
 		<integer>1</integer>
 		<key>remap.simcursor_to_diagonal_cursor</key>
 		<integer>1</integer>
-		<key>space_cadet.fn2allmods</key>
+		<key>remap.simultaneouskeypresses_kl2controlLf4</key>
+		<integer>1</integer>
+		<key>remap.simultaneouskeypresses_shiftRuparrow2pc_application</key>
+		<integer>1</integer>
+		<key>swap_consumer.cmd_r</key>
 		<integer>1</integer>
 		<key>swap_consumer.consumer_keys_to_digits</key>
 		<integer>1</integer>
-		<key>swap_consumer.digits_to_symbols</key>
+		<key>swap_consumer.consumer_keys_to_symbols2</key>
 		<integer>1</integer>
-		<key>swap_consumer.shift_digits_to_whoknows</key>
+		<key>swap_consumer.digits_to_symbols</key>
 		<integer>1</integer>
 		<key>swap_consumer.uber_consumer_keys_to_consumer_keys</key>
 		<integer>1</integer>
-		<key>swap_consumer.uber_digits_to_fn_keys</key>
-		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_arrows_to_f15</key>
 		<integer>1</integer>
-		<key>uber_key.cmd_r_uber_forward_delete_to_shift_cmd_ctrl_opt_f14</key>
+		<key>uber_key.cmd_r_uber_escape_to_opt_f13</key>
 		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_left_misc_to_f13</key>
 		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_right_misc_to_f14</key>
 		<integer>1</integer>
-		<key>uber_key.cmd_r_uber_row1_to_fn</key>
+		<key>uber_key.cmd_r_uber_row1_to_shift_fn</key>
 		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_row2_to_ctrl_fn</key>
 		<integer>1</integer>
@@ -77,16 +93,20 @@
 		<integer>1</integer>
 		<key>uber_key.cmd_r_uber_space_to_shift_option_command_f13</key>
 		<integer>1</integer>
+		<key>uber_key.uber_ctrl_k_to_f18</key>
+		<integer>1</integer>
 		<key>uberkey.cmd_r_as_uber_key</key>
 		<integer>1</integer>
 		<key>vhyper.fn_to_pc_application_key_term_only</key>
-		<integer>1</integer>
-		<key>vhyper.fn_to_shiftable_hyper</key>
 		<integer>1</integer>
 	</dict>
 	<key>isCheckUpdate</key>
 	<integer>2</integer>
 	<key>isQuitByHand</key>
+	<false/>
+	<key>isStatusWindowEnabled</key>
+	<false/>
+	<key>isStatusWindowShowPointingButtonLock</key>
 	<false/>
 </dict>
 </plist>
