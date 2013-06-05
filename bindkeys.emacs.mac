@@ -369,6 +369,7 @@
 ;;;___MISC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "H-C-t") 'twit)             ;; TWITTER
+(global-set-key (kbd "H-M") 'markdown-preview)   ;; MARKDOWN
 
 ;;==============================;;
 ;; My Key Bindings
