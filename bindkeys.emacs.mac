@@ -24,18 +24,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; OS-specific keys
 
-(defun kset (oslist fun)
+(defun kset (fun oslist)
   "Set keys that need to be OS Specific, using an alist as input.  
 Default key is all ((all . 'M-x') (ubu . 'M-a'))"
   (global-set-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist)))) fun))
 
-(defun kunset (oslist fun)
+(defun kunset (fun oslist)
   "Unset keys that need to be OS Specific, using an alist as input.  
 Default key is all ((all . 'M-x') (ubu . 'M-a'))"
   (global-unset-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist))))))
 
-;; function to run code only if emos == os
-;;(defun ifos (os))
+;; thinking about storing this in json for now
+;;   http://gromnitsky.blogspot.com/2013/03/creating-emacs-multi-file-packages.html
+(defvar bindkeys-json (json-read-file 
+  (concat (file-name-directory load-file-name) "/bindkeys.emacs.json")))
+
+(defun bindkeys-json-get (key)
+  (cdr (assoc key bindkeys-json)))
+
+;; TODO: merge bindkeys-json["all"] and bindkeys-json[emos]
+;; TODO: eval json as code!
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___ERGOEMACS
@@ -74,14 +82,13 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
 
-(defun osx-map-hyper 
-  "Map a hyper key in OSX.  This works on my Macbook Pro, 
-with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
+(defun osx-map-hyper ()
+  "Map a hyper key in OSX.  This works on my Macbook Pro, with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
   (global-unset-key "\C-p") ;; print .. from emacs .. really?
   (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
 
 (cond 
-  ((equal emos "mac") osx-map-hyper))
+  ((equal emos "mac") (osx-map-hyper)))
 
 ;; alternate configuration with PC_APPLICATION_KEY (p) => f20
 ;;(define-key input-decode-map "p" [f20])
@@ -91,9 +98,9 @@ with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
 ;;;___TEXTNAV
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(kset '(("all"."M-l")) 'goto-line); ergoemacs 'forward-char
-(kset '(("all"."<home>")) 'beginning-of-line);
-(kset '(("all"."<end>")) 'end-of-line);
+(kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
+(kset 'beginning-of-line '(("all"."<home>")));
+(kset 'end-of-line '(("all"."<end>")));
 
 ;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
 ;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
@@ -130,7 +137,7 @@ with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TEXT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(kset '(("all"."C-x w")) 'wrap-no-lines)
+(kset 'wrap-no-lines '(("all"."C-x w")))
 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
@@ -241,6 +248,8 @@ with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
 ;;;___LISPEVAL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set to emacs-lisp-mode only?
+
+(kset 'ielm '(("all"."H-i")))
 
 ;;(global-set-key (kbd "H-RET") 'eval-region)
 (global-set-key (kbd "H-X") 'eval-region)
@@ -378,8 +387,8 @@ with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___MISC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(kset '(("all"."H-C-t")) 'twit)
-(kset '(("all"."H-M")) 'markdown-preview)
+(kset 'twit '(("all"."H-C-t")))
+(kset 'markdown-preview '(("all"."H-M")))
 
 ;;==============================;;
 ;; My Key Bindings
