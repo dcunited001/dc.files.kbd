@@ -29,6 +29,11 @@
 Default key is all ((all . 'M-x') (ubu . 'M-a'))"
   (global-set-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist)))) fun))
 
+(defun kset (fun oslist)
+  "Set keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-set-key (kbd (cdr '(("all"."<end>")))) fun))
+
 (defun kunset (fun oslist)
   "Unset keys that need to be OS Specific, using an alist as input.  
 Default key is all ((all . 'M-x') (ubu . 'M-a'))"
@@ -51,9 +56,12 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (ergoemacs-mode)
 
-(when (equal emos "mac") ;;unbind smex from M-X
+(defun bindkeys-unbind-smex ()
   (global-unset-key (kbd "M-x"))
   (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
+
+(when (or (equal emos "mac") (equal emos "ubu")) 
+  (bindkeys-unbind-smex))
 
 ;; notes
 ;;  (ergoemacs-mode 1) ;ergoemacs minor mode
@@ -98,9 +106,20 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;___TEXTNAV
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
-(kset 'beginning-of-line '(("all"."<home>")));
-(kset 'end-of-line '(("all"."<end>")));
+;; WTF: only getting this error in ubuntu, not mac-osx
+;;   Wrong type argument: integer-or-marker-p, 
+;;     (cdr (or (assoc emos oslist) (assoc "all" oslist)))
+
+(cond 
+ ((equal emos "mac")
+  (kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
+  (kset 'beginning-of-line '(("all"."<home>")))
+  (kset 'end-of-line '(("all"."<end>"))))
+
+ ('(t ) ; default here
+  (global-set-key (kbd "M-l") 'goto-line)
+  (global-set-key (kbd "<home>") 'beginning-of-line)
+  (global-set-key (kbd "<end>") 'end-of-line)))
 
 ;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
 ;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
@@ -137,8 +156,8 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TEXT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(kset 'wrap-no-lines '(("all"."C-x w")))
 
+(global-set-key (kbd "C-x w") 'wrap-no-lines)
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 
@@ -249,7 +268,8 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set to emacs-lisp-mode only?
 
-(kset 'ielm '(("all"."H-i")))
+;;(kset 'ielm '(("all"."H-i")))
+(global-set-key (kbd "H-i") 'ielm)
 
 ;;(global-set-key (kbd "H-RET") 'eval-region)
 (global-set-key (kbd "H-X") 'eval-region)
@@ -387,8 +407,8 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___MISC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(kset 'twit '(("all"."H-C-t")))
-(kset 'markdown-preview '(("all"."H-M")))
+(global-set-key (kbd "H-C-t") 'twit)
+(global-set-key (kbd "H-M") 'markdown-preview)
 
 ;;==============================;;
 ;; My Key Bindings
