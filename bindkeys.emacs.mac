@@ -109,17 +109,20 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; WTF: only getting this error in ubuntu, not mac-osx
 ;;   Wrong type argument: integer-or-marker-p, 
 ;;     (cdr (or (assoc emos oslist) (assoc "all" oslist)))
+;; Update: this also happens over ssh
+;; Nevermind: also happening on OSX..
 
-(cond 
- ((equal emos "mac")
-  (kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
-  (kset 'beginning-of-line '(("all"."<home>")))
-  (kset 'end-of-line '(("all"."<end>"))))
+;;(cond 
+;; ((equal emos "mac")
+;;  (kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
+;;  (kset 'beginning-of-line '(("all"."<home>")))
+;;  (kset 'end-of-line '(("all"."<end>"))))
 
- ('(t ) ; default here
+;; ('(t ) ; default here
   (global-set-key (kbd "M-l") 'goto-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
-  (global-set-key (kbd "<end>") 'end-of-line)))
+  (global-set-key (kbd "<end>") 'end-of-line)
+;;))
 
 ;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
 ;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
