@@ -5,29 +5,28 @@
 ! ASUS UL50V
 clear Lock
 
-!ESC
+!Esc
 keycode 9 = Hyper_L
-
+          
 !CAPS
 keycode 66 = Escape 
 
 !SHIFT LR 50 62
 
-!ALT LR
-keycode 64 = Control_L
-keycode 108 = Control_R
+!ALT LR 
+keycode 64 = Super_L
+keycode 108 = Super_R
 
-!CTRL LR
+!CTRL LR 
 keycode 37 = Control_L
-keycode 105 = Alt_R
+keycode 105 = Control_R
 
 !SUPER LR & MENU
-keycode 133 = Meta_L
+keycode 133 = Alt_L
 !keycode 134 = Super_R
-keycode 135 = Super_R
 
 !MENU
-!keycode 135
+keycode 135 = Meta_R
 
 !FN Combos
 ! F-C  156  XF86Launch1
@@ -72,4 +71,3 @@ add Mod5 = Hyper_L Mode_switch
 !mod3      
 !mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
 !mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
-
