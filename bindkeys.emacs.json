@@ -1,0 +1,11 @@
+{
+  "all": {
+    "goto-line": "M-l"
+  },
+  "mac": {
+    "twit": "H-C-t"
+  },
+  "ubu": {
+    "twit": "C-t"
+  }
+}
