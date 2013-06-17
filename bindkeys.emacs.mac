@@ -20,28 +20,36 @@
 ;; Codin' it on up now, boss.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; TODO: setup anchor text to insert new keybindings at specific locations
+;;;___OSKEYS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; OS-specific keys
+
+(defun kset (oslist fun)
+  "Set keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-set-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist)))) fun))
+
+(defun kunset (oslist fun)
+  "Unset keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-unset-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist))))))
+
+;; function to run code only if emos == os
+;;(defun ifos (os))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___ERGOEMACS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; loading from package-install is failing because the filename symbol can't be resolved 
-(require 'ergoemacs-mode)
-
-;; load locally from git submodule instead
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (ergoemacs-mode)
-;;(load-file "~/.emacs.d/personal/ergoemacs/site-lisp/site-start.el")
 
-;;(ergoemacs-mode 1) ;emacs minor mode
-;;http://ergoemacs.org/emacs/keystroke_rep.html
-;;http://ergoemacs.org/emacs/keystroke_rep.html
+(when (equal emos "mac") ;;unbind smex from M-X
+  (global-unset-key (kbd "M-x"))
+  (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
 
-;; unbind smex from M-X ;; wtf seriously?
-(global-unset-key (kbd "M-x"))
-(global-set-key (kbd "M-x") 'ergoemacs-copy-line-or-region)
-;; ..... cut still doesn't work... wtf
+;; notes
+;;  (ergoemacs-mode 1) ;ergoemacs minor mode
+;;  http://ergoemacs.org/emacs/keystroke_rep.html
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___REMAPKEYS
@@ -50,8 +58,7 @@
 ;; need to keep the unless?
 ;; FIXME: not running when emacs is daemonized
 ;;   and apparently it's not the unless
-(unless window-system
-  ;; Remap the Esc. Sequences for Home & End
+(unless window-system ;; Remap the Esc. Sequences for Home & End
   (define-key input-decode-map "[H" [home])
   (define-key input-decode-map "[F" [end]))
 
@@ -67,9 +74,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
 
-;; when FN => PC_APPLICATION_KEY
-(global-unset-key "\C-p") ;; print .. from emacs .. really?
-(define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier)
+(defun osx-map-hyper 
+  "Map a hyper key in OSX.  This works on my Macbook Pro, 
+with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
+  (global-unset-key "\C-p") ;; print .. from emacs .. really?
+  (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
+
+(cond 
+  ((equal emos "mac") osx-map-hyper))
 
 ;; alternate configuration with PC_APPLICATION_KEY (p) => f20
 ;;(define-key input-decode-map "p" [f20])
@@ -79,14 +91,12 @@
 ;;;___TEXTNAV
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "M-l") 'goto-line) ;; ergoemacs 'forward-char
-
-(global-set-key (kbd "<home>") 'beginning-of-line) ;; need slash?
-(global-set-key (kbd "<end>") 'end-of-line) ;; need slash?
+(kset '(("all"."M-l")) 'goto-line); ergoemacs 'forward-char
+(kset '(("all"."<home>")) 'beginning-of-line);
+(kset '(("all"."<end>")) 'end-of-line);
 
 ;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
 ;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
-
 
 ;; beginning-of-buffer
 ;; beginning-of-buffer-other-window
@@ -120,7 +130,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TEXT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-x w") 'wrap-no-lines)
+(kset '(("all"."C-x w")) 'wrap-no-lines)
 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
@@ -368,8 +378,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___MISC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "H-C-t") 'twit)             ;; TWITTER
-(global-set-key (kbd "H-M") 'markdown-preview)   ;; MARKDOWN
+(kset '(("all"."H-C-t")) 'twit)
+(kset '(("all"."H-M")) 'markdown-preview)
 
 ;;==============================;;
 ;; My Key Bindings
