@@ -24,6 +24,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; OS-specific keys
 
+;; also define vars for various platforms' modkeys
+;; e.g. (setq mod1 "M-")
+
 (defun kset (fun oslist)
   "Set keys that need to be OS Specific, using an alist as input.  
 Default key is all ((all . 'M-x') (ubu . 'M-a'))"
@@ -119,7 +122,6 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;  (kset 'end-of-line '(("all"."<end>"))))
 
 ;; ('(t ) ; default here
-  (global-set-key (kbd "M-l") 'goto-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
   (global-set-key (kbd "<end>") 'end-of-line)
 ;;))
@@ -175,7 +177,7 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; isearch
 (global-set-key (kbd "H-f") 'isearch-forward)
 (global-set-key (kbd "C-f") 'isearch-repeat-forward)
-
+B
 (global-set-key (kbd "H-F") 'isearch-backward)
 (global-set-key (kbd "C-F") 'isearch-repeat-backward)
 
@@ -199,6 +201,7 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;___FILENAV
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(global-set-key (kbd "H-l") 'goto-line)
 (global-set-key (kbd "H-o") 'projectile-recentf)
 (global-set-key (kbd "H-t") 'projectile-toggle-between-implementation-and-test)
 (global-set-key (kbd "H-T") 'projectile-find-test-file)
