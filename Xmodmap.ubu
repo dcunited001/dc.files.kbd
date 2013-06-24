@@ -67,6 +67,9 @@ add Mod4 = Super_L Super_R
 add Mod5 = Hyper_L Mode_switch
 
 !====[NUM KEYS]========================
+keycode 65 = space       underscore
+
+!====[NUM KEYS]========================
 keycode 10 = exclam      1
 keycode 11 = at          2
 keycode 12 = numbersign  3
