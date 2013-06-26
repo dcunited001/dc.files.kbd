@@ -177,7 +177,7 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; isearch
 (global-set-key (kbd "H-f") 'isearch-forward)
 (global-set-key (kbd "C-f") 'isearch-repeat-forward)
-B
+
 (global-set-key (kbd "H-F") 'isearch-backward)
 (global-set-key (kbd "C-F") 'isearch-repeat-backward)
 
