@@ -71,22 +71,38 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;  http://ergoemacs.org/emacs/keystroke_rep.html
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___REMAPKEYS
+;;;___TERMFIX
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; need to keep the unless?
 ;; FIXME: not running when emacs is daemonized
 ;;   and apparently it's not the unless
-(unless window-system ;; Remap the Esc. Sequences for Home & End
+(defun terminal-fix-home-end ()
+  "Remap the Esc. Sequences for Home & End"
   (define-key input-decode-map "[H" [home])
   (define-key input-decode-map "[F" [end]))
 
-;; (if window-system
-;;   ;; TODO: fix a few issues with remapping escape (marking text)
-;;   ;; Set escape as meta (only mapped in iTerm)
-;;   ;; (global-set-key (kbd "<escape>") 'execute-extended-command)
-;;   (global-unset-key (kbd "<escape>"))
-;;   (define-key function-key-map (kbd "<escape>") 'event-apply-meta-modifier))
+;; Terminal fixes
+(unless window-system
+  (terminal-fix-home-end))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___GUIFIX
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun gui-fix-escape ()
+  "Make escape trigger a meta-key press"
+  (interactive)
+  (global-unset-key (kbd "<escape>"))
+  (define-key function-key-map (kbd "<escape>") 'event-apply-meta-modifier))
+
+(defun gui-set-key-fix-escape ()
+  (global-set-key (kbd "H-M-y") 'gui-fix-escape))
+
+;; GUI fixes
+(if window-system
+;;  (gui-fix-escape)         ;; this runs, and then is overwritten by emacs gui
+  (gui-set-key-fix-escape) ;; so for now, just press Opt-escape Opt-escape - lol
+  ;; maybe set up a command to wait 10 seconds?
+) 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HYPERKEY
