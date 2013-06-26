@@ -18,8 +18,8 @@
 
   <!-- APP DEFINITIONS -->
   <!-- https://github.com/tekezo/KeyRemap4MacBook/blob/version_8.3.0/src/core/server/Resources/appdef.xml -->
-
   <!--   Example of appdef for emacs.  KR4M correctly responds with the default config
+
   <appdef>
     <appname>EMACS</appname>
     <equal>org.gnu.Emacs</equal>
@@ -41,7 +41,7 @@
       <name>Remap Escape to Option</name>
       <identifier>emacs_gui.remap_escape_to_option</identifier>
 
-      <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::NONE, KeyCode::OPTION_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::NONE, KeyCode::VK_STICKY_OPTION_L</autogen>
       <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::OPTION_L, KeyCode::ESCAPE</autogen>
       <only>EMACS</only>
     </item>
