@@ -16,6 +16,19 @@
   <!-- <include path="custom_swap.xml" /> -->
 
 
+  <!-- APP DEFINITIONS -->
+  <!-- https://github.com/tekezo/KeyRemap4MacBook/blob/version_8.3.0/src/core/server/Resources/appdef.xml -->
+
+  <!--   Example of appdef for emacs.  KR4M correctly responds with the default config
+  <appdef>
+    <appname>EMACS</appname>
+    <equal>org.gnu.Emacs</equal>
+    <equal>org.gnu.AquamacsEmacs</equal>
+    <equal>org.gnu.Aquamacs</equal>
+    <equal>org.pqrs.unknownapp.conkeror</equal>
+  </appdef>
+  -->
+
   <!-- see PC Remap Config -->
   <!-- caps <=> escape -->
   <!-- control_r => control_l -->
@@ -23,6 +36,7 @@
 
   <item>
     <name>Emacs GUI</name>
+
     <item>
       <name>Remap Escape to Option</name>
       <identifier>emacs_gui.remap_escape_to_option</identifier>
@@ -31,6 +45,7 @@
       <autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::OPTION_L, KeyCode::ESCAPE</autogen>
       <only>EMACS</only>
     </item>
+
   </item>
 
 </root>
