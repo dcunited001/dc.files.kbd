@@ -273,8 +273,10 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 
 ;;'ergoemacs-switch-to-next-frame
 ;;'ergoemacs-switch-to-prev-frame
-(global-set-key (kbd "H-`") 'new-frame)
-
+(global-set-key (kbd "H-n") 'new-frame)
+(global-set-key (kbd "H-N") 'delete-frame)
+(global-set-key (kbd "H-`") 'ergoemacs-switch-to-next-frame)
+(global-set-key (kbd "H-~") 'ergoemacs-switch-to-previous-frame)
 ;; FIXME: why doesn't C-` work with emacs??
 ;;(global-set-key (kbd "C-`") 'ns-next-frame)
 ;;(global-set-key (kbd "C-~") 'ns-prev-frame)
