@@ -53,22 +53,12 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; TODO: merge bindkeys-json["all"] and bindkeys-json[emos]
 ;; TODO: eval json as code!
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___ERGOEMACS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
-(ergoemacs-mode)
-
 (defun bindkeys-unbind-smex ()
   (global-unset-key (kbd "M-x"))
   (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
 
 (when (or (equal emos "mac") (equal emos "ubu")) 
   (bindkeys-unbind-smex))
-
-;; notes
-;;  (ergoemacs-mode 1) ;ergoemacs minor mode
-;;  http://ergoemacs.org/emacs/keystroke_rep.html
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TERMFIX
@@ -110,7 +100,8 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
 
 (defun osx-map-hyper ()
-  "Map a hyper key in OSX.  This works on my Macbook Pro, with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
+  "Map a hyper key in OSX.  This works on my Macbook Pro, 
+     with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
   (global-unset-key "\C-p") ;; print .. from emacs .. really?
   (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
 
@@ -354,6 +345,15 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; (setq mac-pass-command-to-system t) ;enable/disable?
 ;; (setq mac-pass-command-to-system) ;enable/disable?
 ;; (setq mac-pass-control-to-system nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___CLOJURE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; nrepl-jack-in
+
+(global-set-key (kbd "H-j") 'nrepl-javadoc)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___RUBY
