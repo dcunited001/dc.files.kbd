@@ -429,6 +429,14 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
   (define-key pd-rinari-map2 "z" 'rinari-find-rspec-fixture)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___YAML
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; no idea why yaml-mode disables set-mark-command (selecting text)
+;;   i'm going to assume it's prelude overlapping with ergoemacs
+;; - nevermind, this fix doesn't work.  yay, complete waste of time.
+;; (add-hook 'yaml-mode-hook '(lambda () (define-key "M-SPC" 'set-mark-command)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___MISC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "H-C-t") 'twit)
