@@ -22,7 +22,7 @@
       <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE,      KeyCode::KEY_2, ModifierFlag::NONE </autogen>
 
       <autogen>--KeyToKey--      KeyCode::EXPOSE_ALL, ModifierFlag::NONE,                 KeyCode::KEY_3, ModifierFlag::NONE </autogen>
-      <autogen>--KeyToKey--      KeyCode::DASHBOARD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--      KeyCode::LAUNCHPAD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::NONE </autogen>
 
       <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE,  KeyCode::KEY_5, ModifierFlag::NONE </autogen>
       <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE, KeyCode::KEY_6, ModifierFlag::NONE </autogen>
