@@ -12,29 +12,6 @@
   <!-- uber+consumer  => consumer -->
   <!-- uber+digits    => f-keys -->
 
-  <symbol_map type="KeyCode" name="CONSUMER_KEY_F4" value="0x32" />
-
-  <item>
-    <name>Configure F4 Key (required for swapping consumer keys and digits)</name>
-    <appendix>On Early 2011 Macbook Pro and earlier, use the Dashboard key</appendix>
-    <appendix>On Late 2011 Macbook Pro and earlier, use the Launchpad key</appendix>
-
-    <item>
-      <name>Set F4 to KeyCode::DASHBOARD</name>
-      <identifier>swap_consumer.set_f4_to_dashboard</identifier>
-      <autogen>__KeyToKey__ KeyCode::DASHBOARD, KeyCode::CONSUMER_KEY_F4</autogen>
-      <!-- <autogen>__KeyToKey__ KeyCode::CONSUMER_KEY_F4, KeyCode::DASHBOARD</autogen> -->
-
-    </item>
-
-    <item>
-      <name>Set F4 to KeyCode::LAUNCHPAD</name>
-      <identifier>swap_consumer.set_f4_to_launchpad</identifier>
-      <autogen>__KeyToKey__ KeyCode::LAUNCHPAD, KeyCode::CONSUMER_KEY_F4</autogen>
-      <!-- <autogen>__KeyToKey__ KeyCode::CONSUMER_KEY_F4, KeyCode::LAUNCHPAD</autogen> -->
-    </item>
-  </item>
-
   <item>
     <name>Swap ConsumerKeys/Digits/Symbols/F-Keys</name>
     <item>
@@ -46,6 +23,7 @@
 
       <autogen>--KeyToKey--      KeyCode::EXPOSE_ALL, ModifierFlag::NONE,                 KeyCode::KEY_3, ModifierFlag::NONE </autogen>
       <autogen>--KeyToKey--      KeyCode::LAUNCHPAD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--      KeyCode::DASHBOARD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::NONE </autogen>
 
       <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE,  KeyCode::KEY_5, ModifierFlag::NONE </autogen>
       <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::NONE, KeyCode::KEY_6, ModifierFlag::NONE </autogen>
@@ -89,6 +67,7 @@
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,      ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE </autogen>
 
       <autogen>--KeyToKey--           KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE,                 KeyCode::EXPOSE_ALL, ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--           KeyCode::LAUNCHPAD, ModifierFlag::EXTRA1 | ModifierFlag::NONE,                  KeyCode::LAUNCHPAD, ModifierFlag::NONE </autogen>
       <autogen>--KeyToKey--           KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE,                  KeyCode::DASHBOARD, ModifierFlag::NONE </autogen>
 
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::EXTRA1 | ModifierFlag::NONE,  ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE </autogen>
@@ -170,6 +149,7 @@
       <autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE,      KeyCode::KEY_2, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
 
       <autogen>--KeyToKey--      KeyCode::EXPOSE_ALL, ModifierFlag::NONE,                 KeyCode::KEY_3, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
+      <autogen>--KeyToKey--      KeyCode::LAUNCHPAD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
       <autogen>--KeyToKey--      KeyCode::DASHBOARD, ModifierFlag::NONE,                  KeyCode::KEY_4, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
 
       <autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE,  KeyCode::KEY_5, ModifierFlag::SHIFT_L | ModifierFlag::NONE </autogen>
@@ -194,6 +174,7 @@
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::EXTRA1 | ModifierFlag::NONE,        ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE</autogen>
 
       <autogen>--KeyToKey-- KeyCode::EXPOSE_ALL, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::EXPOSE_ALL,        ModifierFlag::NONE</autogen>
+      <autogen>--KeyToKey-- KeyCode::LAUNCHPAD, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::LAUNCHPAD,          ModifierFlag::NONE</autogen>
       <autogen>--KeyToKey-- KeyCode::DASHBOARD, ModifierFlag::EXTRA1 | ModifierFlag::NONE, KeyCode::DASHBOARD,          ModifierFlag::NONE</autogen>
 
       <autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::EXTRA1 | ModifierFlag::NONE,    ConsumerKeyCode::KEYBOARDLIGHT_LOW, ModifierFlag::NONE</autogen>
