@@ -12,6 +12,29 @@
   <!-- uber+consumer  => consumer -->
   <!-- uber+digits    => f-keys -->
 
+  <symbol_map type="KeyCode" name="CONSUMER_KEY_F4" value="0x32" />
+
+  <item>
+    <name>Configure F4 Key (required for swapping consumer keys and digits)</name>
+    <appendix>On Early 2011 Macbook Pro and earlier, use the Dashboard key</appendix>
+    <appendix>On Late 2011 Macbook Pro and earlier, use the Launchpad key</appendix>
+
+    <item>
+      <name>Set F4 to KeyCode::DASHBOARD</name>
+      <identifier>swap_consumer.set_f4_to_dashboard</identifier>
+      <autogen>__KeyToKey__ KeyCode::DASHBOARD, KeyCode::CONSUMER_KEY_F4</autogen>
+      <!-- <autogen>__KeyToKey__ KeyCode::CONSUMER_KEY_F4, KeyCode::DASHBOARD</autogen> -->
+
+    </item>
+
+    <item>
+      <name>Set F4 to KeyCode::LAUNCHPAD</name>
+      <identifier>swap_consumer.set_f4_to_launchpad</identifier>
+      <autogen>__KeyToKey__ KeyCode::LAUNCHPAD, KeyCode::CONSUMER_KEY_F4</autogen>
+      <!-- <autogen>__KeyToKey__ KeyCode::CONSUMER_KEY_F4, KeyCode::LAUNCHPAD</autogen> -->
+    </item>
+  </item>
+
   <item>
     <name>Swap ConsumerKeys/Digits/Symbols/F-Keys</name>
     <item>
