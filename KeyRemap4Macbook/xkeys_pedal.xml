@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>X-Keys Pedal</name>
+    <appendix>Hacks for the pedal, so its ControllerMate app</appendix>
+    <appendix>can be configured to send modkeys</appendix>
+    <appendix> ==> DOESN'T WORK! <==</appendix>
+    <appendix>http://xkeys.com/XkeysFootPedals/index.php</appendix>
+
+      <item>
+        <name>Remap CMD+F17, CTRL+F17 Shift+F17, and OPT+F17 to CMD, CTRL, SHIFT, and OPT</name>
+        <identifier>vhyper.xkeys_pedal_hack</identifier>
+        <autogen>--KeyToKey-- KeyCode::F17, ModifierFlag::COMMAND_L, KeyCode::COMMAND_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::F17, ModifierFlag::CONTROL_L, KeyCode::CONTROL_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::F17, ModifierFlag::SHIFT_L, KeyCode::SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::F17, ModifierFlag::OPTION_L, KeyCode::OPTION_L</autogen>
+      </item>
+  </item>
+
+</root>

@@ -6,6 +6,7 @@
   <include path="v_hyper_key.xml" />
   <include path="unithumbability.xml" />
   <include path="custom_misc.xml" />
+  <include path="xkeys_pedal.xml" />
 
   <!-- removes q & z, maps w to z, & more -->
   <!--<include path="erty_mode.xml" />-->
