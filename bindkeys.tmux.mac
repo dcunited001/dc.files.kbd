@@ -1,0 +1,53 @@
+# vim: ft=tmux
+
+#===============================================================
+# Default Tmux Bindings
+#===============================================================
+
+#Function                     vi              emacs
+#Back to indentation          ^               M-m
+#Bottom of history            G               M-<
+#Clear selection              Escape          C-g
+#Copy selection               Enter           M-w
+#Cursor down                  j               Down
+#Cursor left                  h               Left
+#Cursor right                 l               Right
+#Cursor to bottom line        L
+#Cursor to middle line        M               M-r
+#Cursor to top line           H               M-R
+#Cursor up                    k               Up
+#Delete entire line           d               C-u
+#Delete/Copy to end of line   D               C-k
+#End of line                  $               C-e
+#Go to line                   :               g
+#Half page down               C-d             M-Down
+#Half page up                 C-u             M-Up
+#Jump forward                 f               f
+#Jump to forward              t
+#Jump backward                F               F
+#Jump to backward             T
+#Jump again                   ;               ;
+#Jump again in reverse        ,               ,
+#Next page                    C-f             Page down
+#Next space                   W
+#Next space, end of word      E
+#Next word                    w
+#Next word end                e               M-f
+#Paste buffer                 p               C-y
+#Previous page                C-b             Page up
+#Previous word                b               M-b
+#Previous space               B
+#Quit mode                    q               Escape
+#Rectangle toggle             v               R
+#Scroll down                  C-Down or C-e   C-Down
+#Scroll up                    C-Up or C-y     C-Up
+#Search again                 n               n
+#Search again in reverse      N               N
+#Search backward              ?               C-r
+#Search forward               /               C-s
+#Start of line                0               C-a
+#Start selection              Space           C-Space
+#Top of history               g               M->
+#Transpose chars                              C-t
+
+
