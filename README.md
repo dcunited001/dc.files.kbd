@@ -11,6 +11,40 @@ I put them all in one repo so they could be easily shared as a complete profile.
 
 ![ScreenShot](https://raw.github.com/dcunited001/dc.files.kbd/master/dc-keyboard.jpg)
 
+Digimon Layout
+=========
+
+For the digimon layout on OSX, you'll need to at least enable the Uber key to
+retain functionality of your Consumer keys.  This means you'll need to
+update two keys in Seil(PC Key Remap) and enable a few custom settings
+in Karabiner(KeyRemap.)
+
+#### Settings in Seil:
+
+1) Change the action of your Capslock Key to Escape 
+
+![Screenshot](https://raw.github.com/dcunited001/dc.files.kbd/master/seil_settings1.png)
+
+2) Change your Right Command to Left Command and Escape to Right
+Command.
+
+![Screenshot](https://raw.github.com/dcunited001/dc.files.kbd/master/seil_settings2.png)
+
+#### Settings in Karabiner:
+
+3) Swap your symbols and digits
+
+![Screenshot](https://raw.github.com/dcunited001/dc.files.kbd/master/karabiner_settings.png)
+
+That's it.  Without enabling any other Uber key settings, the digimon
+layout should work.  The Uber key settings can interfere with other
+shortcuts, although all function key combinations remain accessible
+using the FN key. (e.g. for IntelliJ shortcuts)
+
+Additionally, with further custom Karabiner configuration, you can map
+Shift+ConsumerKeys and Shift+Digits to new keys, like greek symbols or
+whatever you need.
+
 Hyper Key
 =========
 
