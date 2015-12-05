@@ -53,12 +53,14 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; TODO: merge bindkeys-json["all"] and bindkeys-json[emos]
 ;; TODO: eval json as code!
 
-(defun bindkeys-unbind-smex ()
-  (global-unset-key (kbd "M-x"))
-  (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
+;; (defun bindkeys-unbind-smex ()
+;;   (global-unset-key (kbd "M-x"))
+;;   (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
 
-(when (or (equal emos "mac") (equal emos "ubu")) 
-  (bindkeys-unbind-smex))
+;; (when (or (equal emos "mac") (equal emos "ubu")) 
+;;   (bindkeys-unbind-smex))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TERMFIX
@@ -99,14 +101,27 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
 
+;;(defun  osx-map-hyper ()
+  ;; "Map a hyper key in OSX.  This works on my Macbook Pro, 
+  ;;    with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
+  ;; (global-unset-key "\C-p") ;; print .. from emacs .. really?
+;; (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
+
+(defun osx-terminal-map-hyper ()
+  "Map hyper key in OSX terminal.  This requires KeyRemap Config.
+  must map FN => Danish Dollar" ;; this works in non-text buffers, but not in typing text-buffers
+  (define-key function-key-map (kbd "<§>") 'event-apply-hyper-modifier))
+
+
 (defun osx-map-hyper ()
-  "Map a hyper key in OSX.  This works on my Macbook Pro, 
-     with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
-  (global-unset-key "\C-p") ;; print .. from emacs .. really?
-  (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
+  "Map hyper key in OSX.  This should work without KeyRemap configuration.
+  This only works in GUI emacs."
+  ;;(ns-function-modifier 'hyper)
+  (setq mac-function-modifier 'hyper))
 
 (cond
-  ((equal system-type 'darwin) (osx-map-hyper)))
+ ;;((equal system-type 'darwin) (osx-map-hyper))
+ ((equal system-type 'darwin) (osx-map-hyper)))
 
 ;; alternate configuration with PC_APPLICATION_KEY (p) => f20
 ;;(define-key input-decode-map "p" [f20])
