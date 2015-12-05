@@ -22,6 +22,14 @@
         <autogen>--KeyToKey-- KeyCode::FN, KeyCode::PC_APPLICATION</autogen>
         <only>EMACS, TERMINAL</only>
       </item>
+
+      <item>
+        <name>Remap Function to PC Application Key (iTerm/Terminal only)</name>
+        <identifier>vhyper.fn_to_f19_term_only</identifier>
+
+        <autogen>--KeyToKey-- KeyCode::FN, KeyCode::DANISH_DOLLAR</autogen>
+        <only>EMACS, TERMINAL</only>
+      </item>
     </item>
 
     <item>
