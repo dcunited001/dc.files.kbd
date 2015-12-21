@@ -9,7 +9,7 @@ xkb_symbols "basic" {
 
     // remap symbols to digits
     // key <TLDE> {	[     grave,	asciitilde	]	};
-    key <AE01> {	[     exclam,      1          ]	};
+    key <AE01> {	[     exclam,      1           ]	};
     key <AE02> {	[     at,          2		]	};
     key <AE03> {	[     numbersign,  3	]	};
     key <AE04> {	[     dollar,      4		]	};
@@ -42,3 +42,38 @@ xkb_symbols "basic" {
     // TODO: map unicode chars to shift+digits & alt+digits
     // TODO: simultaneous keypresses?
 };
+
+xkb_symbols "emoji" {
+   include "io(basic)"
+
+    // remap symbols to digits
+    // key <TLDE> {	[     grave,	asciitilde	]	};
+    key <AE01> {	[     exclam,      1          ]	};
+    key <AE02> {	[     at,          2		]	};
+    key <AE03> {	[     numbersign,  3	]	};
+    key <AE04> {	[     dollar,      4		]	};
+    key <AE05> {	[     percent,     5		]	};
+    key <AE06> {	[     asciicircum, 6	]	};
+    key <AE07> {	[     ampersand,   7	]	};
+    key <AE08> {	[     asterisk,    8	]	};
+    key <AE09> {	[     parenleft,   9	]	};
+    key <AE10> {	[     parenright,  0	]	};
+    // key <AE11> {	[     minus,	underscore	]	};
+    // key <AE12> {	[     equal,	plus		]	};
+
+    // remap digits to function keys
+    // - not working at the moment
+    key <FK01> { [ 1, F1 ] };
+    key <FK02> { [ 2, F2 ] };
+    key <FK03> { [ 3, F3 ] };
+    key <FK04> { [ 4, F4 ] };
+    key <FK05> { [ 5, F5 ] };
+    key <FK06> { [ 6, F6 ] };
+    key <FK07> { [ 7, F7 ] };
+    key <FK08> { [ 8, F8 ] };
+    key <FK09> { [ 9, F9 ] };
+    key <FK10> { [ 0, F10 ] };
+    key <FK11> { [ underscore, F11 ] };
+    key <FK12> { [ plus, F12 ] };
+
+}
