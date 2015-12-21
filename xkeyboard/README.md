@@ -95,14 +95,21 @@ you want included.
    
 ```
 
-### Reconfigure xkb-data (Ubuntu only?)
+### Load your changes
 
-I'm not quite sure if this step is required and, if so, when.  But,
-[this article](https://help.ubuntu.com/community/Custom%20keyboard%20layout%20definition)
-says it is.  Run `sudo dpkg-reconfigure xkb-data`, so that Ubuntu reconfigures
-the changes made to your `/usr/share/X11/xkb` folder.  The version of Linux Mint i'm
-using seemed to pick up the changes and insert them in the keyboard preferences
-as soon as I saved the file.
+The version of Linux Mint i'm using seemed to pick up the changes and
+insert them in the keyboard preferences as soon as I saved the file.  If your
+changes aren't showing up, try reordering your keyboard layouts in
+keyboard preferences or deleting & readding the new one.
+
+#### Reconfigure xkb-data (Ubuntu only?)
+
+In my version of linux I haven't found this to be helpful.
+
+[This article](https://help.ubuntu.com/community/Custom%20keyboard%20layout%20definition)
+says this may be running `sudo dpkg-reconfigure xkb-data` may be
+required.  This is so that Ubuntu reconfigures the changes made to
+your `/usr/share/X11/xkb` folder.
 
 ### Mac OSX Function & Media Keys
 
