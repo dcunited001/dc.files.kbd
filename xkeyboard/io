@@ -4,6 +4,9 @@ xkb_symbols "basic" {
     include "us"
     name[Group1]= "Digimon - US";
 
+    // shift + space = underscore
+    key <SPCE> { [  space, underscore, nobreakspace, nobreakspace ] };
+
     // remap symbols to digits
     // key <TLDE> {	[     grave,	asciitilde	]	};
     key <AE01> {	[     exclam,      1          ]	};
