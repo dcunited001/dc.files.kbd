@@ -6,6 +6,8 @@ This project is part of my dotfiles, which can be found at http://github.com/dcu
 This project also includes my keybindings for zsh, vim, emacs and pretty much any other program.
 I put them all in one repo so they could be easily shared as a complete profile.
 
+XKB custom keyboards are in `xkeyboard`.  XKB is way cooler than xmodmap.
+
 > On OSX: you will need to install KeyRemap4MacBook, PCKeyboardHack, and NoEjectDelay.
 > They are all free and have awesome default settings, regardless of whether you add my private.xml settings.
 
@@ -21,7 +23,7 @@ in Karabiner(KeyRemap.)
 
 #### Settings in Seil:
 
-1) Change the action of your Capslock Key to Escape 
+1) Change the action of your Capslock Key to Escape
 
 ![Screenshot](https://raw.github.com/dcunited001/dc.files.kbd/master/seil_settings1.png)
 
