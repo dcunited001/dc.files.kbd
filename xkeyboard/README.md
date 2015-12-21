@@ -116,9 +116,24 @@ your `/usr/share/X11/xkb` folder.
 You may need to overwrite the `fnmode` file in order for you function keys to work
 with the proper priority.  This is described in more detail on [this S/O question](http://unix.stackexchange.com/questions/121395/on-an-apple-keyboard-under-linux-how-do-i-make-the-function-keys-work-without-t).
 
+this temporarily fixes the function keys
+
 ```
 echo 2 > /sys/module/hid_apple/parameters/fnmode
 ```
+
+if that works, you can make that setting permanent, depending on
+your boot setup, by writing to `/etc/modprobe.d/hid_apple.conf`.
+ 
+```shell
+# This command should do it:
+echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+
+# Then, rebuild your boot img
+sudo update-initramfs -u -k all
+```
+
+now reboot and hopefully you didn't mess up that boot img
 
 ### Guides
 
