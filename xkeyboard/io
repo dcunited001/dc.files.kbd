@@ -81,6 +81,21 @@ xkb_symbols "emojio" {
     key <FK11> { [ underscore, F11,  U2702,   U3030  ] };  // _  F11 ✂️  〰
     key <FK12> { [ plus,       F12,  U1F4D0,  U27B0  ] };  // +  F12 📐   ➰
 
+    // compose keys for fun (swapped for usability)
+    key <TLDE> { [grave,   asciitilde,  dead_grave,   dead_tilde  ] };
+    key <AC11> { [apostrophe, quotedbl, dead_acute, dead_diaeresis ] };
+
+    // more compose keys combinations
+    // key <AB09> { [    period,    greater, dead_abovedot,       dead_caron ] };
+    // key <AB10> { [     slash,   question,  questiondown,        dead_hook ] };
+    // dead_belowdot
+    // dead_abovering
+    // dead_breve
+    // dead_ogonek
+    // dead_horn
+    // dead_cedilla
+    // dead_macron
+
     // right alt => alt-gr
     include "level3(ralt_switch)"
 
