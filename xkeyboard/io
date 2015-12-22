@@ -53,46 +53,51 @@ xkb_symbols "emojio" {
     // key <TLDE> {	[     grave,	asciitilde	]	};
     // - strongly recommend retaining the digits!
     // - if for some reason the xkb fn keys fail, u get locked out
-    key <AE01> {	[     exclam,      1,     U1F600 ]	}; // !  1  😀
-    key <AE02> {	[     at,          2,     U1F601 ]	}; // @  2  😁
-    key <AE03> {	[     numbersign,  3,     U1F602 ]	}; // #  3  😂
-    key <AE04> {	[     dollar,      4,     U1F606 ]	}; // $  4  😆
-    key <AE05> {	[     percent,     5,     U1F605 ]	}; // %  5  😅
-    key <AE06> {	[     asciicircum, 6,     U1F607 ]	}; // ^  6  😇
-    key <AE07> {	[     ampersand,   7,     U1F61D ]	}; // &  7  😝
-    key <AE08> {	[     asterisk,    8,     U1F914 ]	}; // *  8  🤔
-    key <AE09> {	[     parenleft,   9,     U1F62B ]	}; // (  9  😫
-    key <AE10> {	[     parenright,  0,     U1F616 ]	}; // )  0  😖
-    key <AE11> {	[     minus,	underscore, U1F631 ]  }; // -  _  😱
-    key <AE12> {	[     equal,	plus,       U1F62D ]  }; // =  +  😭
+    key <AE01> {	[     exclam,      1,     U1F600,  U1F4A9 ]	};  // !  1  😀   💩
+    key <AE02> {	[     at,          2,     U1F601,  U1F47B ]	};  // @  2  😁   👻
+    key <AE03> {	[     numbersign,  3,     U1F602,  U1F64C ]	};  // #  3  😂   🙌
+    key <AE04> {	[     dollar,      4,     U1F606,  U26A1  ]	};  // $  4  😆   ⚡️
+    key <AE05> {	[     percent,     5,     U1F605,  U1F4AB ]	};  // %  5  😅   💫
+    key <AE06> {	[     asciicircum, 6,     U1F607,  U1F31F ]	};  // ^  6  😇   🌟
+    key <AE07> {	[     ampersand,   7,     U1F61D,  U1F37B ]	};  // &  7  😝   🍻
+    key <AE08> {	[     asterisk,    8,     U1F914,  U1F680 ]	};  // *  8  🤔  🚀
+    key <AE09> {	[     parenleft,   9,     U1F62B,  U1F3C1 ]	};  // (  9  😫   🏁
+    key <AE10> {	[     parenright,  0,     U1F616,  U231A  ]	};  // )  0  😖   ⌚️
+    key <AE11> {	[     minus,	underscore, U1F631,  U1F4A1 ]  };  // -  _  😱   💡
+    key <AE12> {	[     equal,	plus,       U1F62D,  U1F48E ]  };  // =  +  😭   💎
 
     // remap digits to function keys
     // - not working at the moment
-    key <FK01> { [ 1, F1 ] };
-    key <FK02> { [ 2, F2 ] };
-    key <FK03> { [ 3, F3 ] };
-    key <FK04> { [ 4, F4 ] };
-    key <FK05> { [ 5, F5 ] };
-    key <FK06> { [ 6, F6 ] };
-    key <FK07> { [ 7, F7 ] };
-    key <FK08> { [ 8, F8 ] };
-    key <FK09> { [ 9, F9 ] };
-    key <FK10> { [ 0, F10 ] };
-    key <FK11> { [ underscore, F11 ] };
-    key <FK12> { [ plus, F12 ] };
+    key <FK01> { [ 1,          F1,   U1F52E,  U1F513 ] };  // 1  F1  🔮   🔓
+    key <FK02> { [ 2,          F2,   U1F4A3,  U1F4AF ] };  // 2  F2  💣  💯
+    key <FK03> { [ 3,          F3,   U2696,   U269C  ] };  // 3  F3  ⚖   ⚜
+    key <FK04> { [ 4,          F4,   U23F3,   U267B  ] };  // 4  F4  ⏳  ♻️
+    key <FK05> { [ 5,          F5,   U1F511,  U2705  ] };  // 5  F5  🔑  ✅
+    key <FK06> { [ 6,          F6,   U1F3FA,  U1F300 ] };  // 6  F6  🏺   🌀
+    key <FK07> { [ 7,          F7,   U1F52D,  U1F50A ] };  // 7  F7  🔭  🔊
+    key <FK08> { [ 8,          F8,   U1F52C,  U1F507 ] };  // 8  F8  🔬   🔇
+    key <FK09> { [ 9,          F9,   U1F4EF,  U1F0CF ] };  // 9  F9  📯   🃏
+    key <FK10> { [ 0,          F10,  U1F587,  U1F3B6 ] };  // 0  F10  🖇   🎶
+    key <FK11> { [ underscore, F11,  U2702,   U3030  ] };  // _  F11 ✂️  〰
+    key <FK12> { [ plus,       F12,  U1F4D0,  U27B0  ] };  // +  F12 📐   ➰
 
+    // right alt => alt-gr
     include "level3(ralt_switch)"
 
 };
 
+// UXXXX + UFE0F => Unicode variation
+// - not really sure how to get this to work with XKB.  xkbcommon can do this, but not xkb
+// - might be able to use the compose functionality in X11 (dead keys?) (multi_key?)
+
 // 😀 😁 😂 😆 😅 😇        😝 🤔 😫 😖 😱 😭
-// 💩 👻 🙌 ⚡ ️ 💫        🌟 🍻 🚀 🏁 ⌚ ️ 💡 💎
+// 💩 👻 🙌 ⚡ 💫 🌟        🍻 🚀 🏁  ⌚ 💡 💎
 // 🔮 💣 ⚖ ⏳ 🔑 🏺         🔭 🔬 📯 🖇 ✂ ️ 📐
 // 🔓 💯 ⚜ ♻ ️ ✅ 🌀      🔊 🔇 🃏 🎶 〰 ➰
 // 🆖 📶 🎦 🔄 ↪ ️ ↩ ️   🔁 🔂 ♠ ️ ♣ ️ ♥ ️ ♦ ️
 
 //  U1F600 U1F601 U1F602 U1F606 U1F605 U1F607 U1F61D U1F914 U1F62B U1F616 U1F631 U1F62D
-//  U1F4A9 U1F47B U1F64C U26A1  UFE0F  U1F4AB U1F31F U1F37B U1F680 U1F3C1 U231A  UFE0F  U1F4A1  U1F48E
-//  U1F52E U1F4A3 U2696  U23F3  U1F511 U1F3FA U1F52D U1F52C U1F4EF U1F587 U2702  UFE0F  U1F4D0
-//  U1F513 U1F4AF U269C  U267B  UFE0F  U2705  U1F300 U1F50A U1F507 U1F0CF U1F3B6 U3030  U27B0
-//  U1F196 U1F4F6 U1F3A6 U1F504 U21AA  UFE0F  U21A9  UFE0F  U1F501 U1F502 U2660  UFE0F  U2663   UFE0F  U2665  UFE0F  U2666  UFE0F
+//  U1F4A9 U1F47B U1F64C U26A1(UFE0F)  U1F4AB U1F31F U1F37B U1F680 U1F3C1 U231A(UFE0F)  U1F4A1  U1F48E
+//  U1F52E U1F4A3 U2696  U23F3  U1F511 U1F3FA U1F52D U1F52C U1F4EF U1F587 U2702(UFE0F)  U1F4D0
+//  U1F513 U1F4AF U269C  U267B(UFE0F)  U2705  U1F300 U1F50A U1F507 U1F0CF U1F3B6 U3030  U27B0
+//  U1F196 U1F4F6 U1F3A6 U1F504 U21AA(UFE0F) U21A9(UFE0F) U1F501 U1F502 U2660(UFE0F) U2663(UFE0F) U2665(UFE0F) U2666  UFE0F
