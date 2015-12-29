@@ -41,6 +41,12 @@ xkb_symbols "basic" {
     // TODO: set escape (capslock) to uber key, using virtual modkey
     // TODO: map unicode chars to shift+digits & alt+digits
     // TODO: simultaneous keypresses?
+
+
+    // right super => command
+    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
+    modifier_map Control { <LCTL>, <RWIN> };
+    modifier_map Mod4 { <LWIN> };
 };
 
 partial alphanumeric_keys
