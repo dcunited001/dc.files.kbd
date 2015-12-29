@@ -99,6 +99,10 @@ xkb_symbols "emojio" {
     // right alt => alt-gr
     include "level3(ralt_switch)"
 
+    // right super => command
+    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
+    modifier_map Control { <LCTL>, <RWIN> };
+    modifier_map Mod4 { <LWIN> };
 };
 
 // UXXXX + UFE0F => Unicode variation
