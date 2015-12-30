@@ -42,11 +42,10 @@ xkb_symbols "basic" {
     // TODO: map unicode chars to shift+digits & alt+digits
     // TODO: simultaneous keypresses?
 
-
     // right super => command
-    //key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
-    //modifier_map Control { <LCTL>, <RWIN> };
-    //modifier_map Mod4 { <LWIN> };
+    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
+    modifier_map Control { <LCTL>, <RWIN> };
+    modifier_map Mod4 { <LWIN> };
 };
 
 partial alphanumeric_keys
@@ -105,13 +104,45 @@ xkb_symbols "emojio" {
     // right alt => alt-gr
     include "level3(ralt_switch)"
 
-    // right super => command
+    // swap super & control
     key <LWIN> {[ Control_L, Control_L, Control_L, Control_L ]};
-    replace key <RWIN> {[ Hyper_R, Hyper_R, Hyper_R, Hyper_R ]};
-    modifier_map Control { <LWIN> };
-    modifier_map Mod3 { <HYPR>, HYPER_R };
+    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
+    key <LCTL> {[ Super_L, Super_L, Super_L, SUper_L ]};
+    modifier_map Control { <LWIN>, <RWIN>, Control_L, Control_R };
     modifier_map Mod4 { <LCTL> };
+
+    // NOTE: need to edit /usr/share/X11/xkb/keycodes/evdev with sudo
+    // - replace <CAPS> with escape keycode (9 on mac)
+    // - replace <ESC> with caps keycode (66 on mac)
+    // - no gui config necessary (and gui doesn't override behavior)
+    key <CAPS> { [ Hyper_L ] };
+    modifier_map Mod3 { Hyper_L };
+    // jeezuz finally.  that was stupid complicated for an obvious setting
+
+    // - TODO: export mapping caps to modkey, but types escape if no combo
+
+//=========================================
+// none of this works.. mostly bc gui overrides bs
+//
+    // Map CAPS to Hyper
+    //  - works, but swap esc+caps overwrites (in keyboard prefs)
+    //key <CAPS> { [ Hyper_L ] };
+    //modifier_map Mod3 { <CAPS> };
+
+    //key <CAPS> { [ Escape ] };
+
+    // doesn't work
+    //key <CAPS> { [ Escape ] };
+    //key <ESC>  { [ Hyper_L ] };
+    //modifier_map Mod3 { <HYPR>, Hyper_L };
+
+    // wow, this hyperkey stuff does not work
+    //modifier_map Mod3 { <HYPR> };
+    //replace key <RWIN> {[ Hyper_R ]};
+//=========================================
 };
+
+
 
 // also, test out various positions of compose key:
 // - http://fsymbols.com/keyboard/linux/compose/
