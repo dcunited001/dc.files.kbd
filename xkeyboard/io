@@ -44,9 +44,9 @@ xkb_symbols "basic" {
 
 
     // right super => command
-    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
-    modifier_map Control { <LCTL>, <RWIN> };
-    modifier_map Mod4 { <LWIN> };
+    //key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
+    //modifier_map Control { <LCTL>, <RWIN> };
+    //modifier_map Mod4 { <LWIN> };
 };
 
 partial alphanumeric_keys
@@ -106,10 +106,15 @@ xkb_symbols "emojio" {
     include "level3(ralt_switch)"
 
     // right super => command
-    key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
-    modifier_map Control { <LCTL>, <RWIN> };
-    modifier_map Mod4 { <LWIN> };
+    key <LWIN> {[ Control_L, Control_L, Control_L, Control_L ]};
+    replace key <RWIN> {[ Hyper_R, Hyper_R, Hyper_R, Hyper_R ]};
+    modifier_map Control { <LWIN> };
+    modifier_map Mod3 { <HYPR>, HYPER_R };
+    modifier_map Mod4 { <LCTL> };
 };
+
+// also, test out various positions of compose key:
+// - http://fsymbols.com/keyboard/linux/compose/
 
 // UXXXX + UFE0F => Unicode variation
 // - not really sure how to get this to work with XKB.  xkbcommon can do this, but not xkb
