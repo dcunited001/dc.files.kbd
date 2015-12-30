@@ -3,6 +3,31 @@ XKB Config
 
 custom keyboards for linux based on macbook pro 2013.
 
+## Swapping Caps & Escape (outside GUI options)
+
+There's a problem with the Linux GUI options in Keyboard Preferences.
+There's a lot of predefined behavior for Caps Lock, but it's not the
+behavior I want: NO CAPS LOCK:
+
+- I want to **Swap Escape** 
+- AND **Set Caps to Hyper**.  
+- I want both
+
+The problem is that this is a radio select and no matter what you do,
+the keyboard preferences in the GUI add options to your XKB layout
+which override your Capslock customizations.
+
+So it looks like the best way to fix this is to directly change the 
+keycodes in `/usr/share/X11/xkb/keycodes/evdev`, i guess.  I mean it's
+a good solution, I just don't want to have to touch that file, not that
+there are major problems with doing so.
+
+[More info here](https://unix.stackexchange.com/questions/9635/how-to-assign-another-modifier-to-alt-key-for-x11?newreg=ce36a09d4269414cbc710ab74931fcce)
+
+Basically, open the `evdev` keycodes file and swap the values for 
+`<CAPS>` and `<ESC>`.
+
+
 ## Creating a new keyboard layout
 
 This worked for me on Linux Mint 17 (Ubuntu 14.04) to create a new keyboard. Refer to
