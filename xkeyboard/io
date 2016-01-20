@@ -1,4 +1,4 @@
-partial alphanumeric_keys
+default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
     include "us"
@@ -42,13 +42,24 @@ xkb_symbols "basic" {
     // TODO: map unicode chars to shift+digits & alt+digits
     // TODO: simultaneous keypresses?
 
+    // right alt => alt-gr
+    include "level3(ralt_switch)"
+
     // right super => command
     key <RWIN> {[ Control_R, Control_R, Control_R, Control_R ]};
     modifier_map Control { <LCTL>, <RWIN> };
     modifier_map Mod4 { <LWIN> };
+
+    // NOTE: need to edit /usr/share/X11/xkb/keycodes/evdev with sudo
+    // - replace <CAPS> with escape keycode (9 on mac)
+    // - replace <ESC> with caps keycode (66 on mac)
+    // - no gui config necessary (and gui doesn't override behavior)
+    key <CAPS> { [ Hyper_L ] };
+    modifier_map Mod3 { Hyper_L };
+ 
 };
 
-partial alphanumeric_keys
+partial alphanumeric_keys modifier_keys
 xkb_symbols "emojio" {
     //TODO: from int'l and then override the apostrophes
     include "io(basic)"
