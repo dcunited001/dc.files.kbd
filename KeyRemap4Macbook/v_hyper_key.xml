@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <root>
 
+  <!-- to enable hyper either:
+       - enable option in karabiner: FN => `§` (Danish Dollar)
+       - or configure init.el & bindkeys.el to remap fn internally only -->
+  <!-- this is set up only in emacs & iTerm -->
+
   <item>
     <name>VHyperKey</name>
     <appendix>trishume - https://gist.github.com/4135580</appendix>
@@ -24,7 +29,7 @@
       </item>
 
       <item>
-        <name>Remap Function to PC Application Key (iTerm/Terminal only)</name>
+        <name>Remap §§ Danish Dollaz §§ to PC Application Key (iTerm/Terminal only)</name>
         <identifier>vhyper.fn_to_f19_term_only</identifier>
 
         <autogen>--KeyToKey-- KeyCode::FN, KeyCode::DANISH_DOLLAR</autogen>
@@ -32,7 +37,7 @@
       </item>
     </item>
 
-    <item>
+    <item>n
       <name>as Control + Option + Command (Shiftable Hyper)</name>
 
       <item>
@@ -65,7 +70,7 @@
 
         <identifier>vhyper.fn_to_shiftable_hyper</identifier>
         <!-- hmmmm.. do i need ModFlag::None here?? -->
-        <!-- <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen> -->
+        <!-- <autogen>-*-KeyToKey-*- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE</autogen> -->
         <autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L </autogen>
       </item>
 
