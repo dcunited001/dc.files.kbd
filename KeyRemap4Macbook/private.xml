@@ -4,9 +4,13 @@
   <include path="custom_eject.xml"/>
   <include path="consumer_to_symbols.xml"/>
   <include path="v_hyper_key.xml" />
-  <include path="unithumbability.xml" />
   <include path="custom_misc.xml" />
   <include path="xkeys_pedal.xml" />
+
+  <!-- N.B. The simultaneous keypress configuration is sole customization
+       I don't know how to configure in Linux(xkb) or whether it's possible...
+       It's pretty sweet though, but ultimately pretty useless... -->
+  <include path="unithumbability.xml" />
 
   <!-- removes q & z, maps w to z, & more -->
   <!--<include path="erty_mode.xml" />-->

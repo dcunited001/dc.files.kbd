@@ -39,6 +39,10 @@
     <item>
       <name>Simultaneous Space</name>
 
+      <!-- N.B. The simultaneous keypress configuration is sole customization
+           I don't know how to configure in Linux(xkb) or whether it's possible...
+           It's pretty sweet though, but ultimately pretty useless... -->
+
       <item>
         <name>Simultaneous Space+[XCVBNM,] to [&lt;{~"|}&gt;]</name>
         <appendix>The chars are annoyingly hard to reach in the shell</appendix>
