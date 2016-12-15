@@ -1,11 +1,4 @@
-;;; bindings.emacs.el --- Key Bindings for Emacs
-;;
-;; Copyright (c) 2013 David Conner
-;;
-;; Author: David Conner <dconner.pro@gmail.com>
-;; URL:
-;; Version: 0.0.1
-;; Keywords: me
+;;; package --- Summary
 
 ;;; Commentary:
 
@@ -18,6 +11,15 @@
 ;;; Code:
 
 ;; Codin' it on up now, boss.
+
+;;; bindings.emacs.el --- Key Bindings for Emacs
+;;
+;; Copyright (c) 2013 David Conner
+;;
+;; Author: David Conner <dconner.pro@gmail.com>
+;; URL:
+;; Version: 0.0.1
+;; Keywords: me
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___OSKEYS
@@ -45,7 +47,7 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;; thinking about storing this in json for now
 ;;   http://gromnitsky.blogspot.com/2013/03/creating-emacs-multi-file-packages.html
 (defvar bindkeys-json (json-read-file 
-  (concat (file-name-directory load-file-name) "/bindkeys.emacs.json")))
+                       (concat (file-name-directory load-file-name) "/bindkeys.emacs.json")))
 
 (defun bindkeys-json-get (key)
   (cdr (assoc key bindkeys-json)))
@@ -462,40 +464,44 @@ Default key is all ((all . 'M-x') (ubu . 'M-a'))"
 ;;==============================;;
 
 ;; TODO: set gist hotkey
-; (global-set-key (kbd "<f8>") 'gist-region-or-buffer)
+                                        ; (global-set-key (kbd "<f8>") 'gist-region-or-buffer)
 
 ;;==============================;;
 ;; My Key Bindings
 ;;==============================;;
 ;; http://es.gnu.org/~aleksander/emacs/dotemacs.el
 
-; ;; Simplify Go-to-line with Meta-g
-; (global-set-key "\M-g" 'goto-line)
+                                        ; ;; Simplify Go-to-line with Meta-g
+                                        ; (global-set-key "\M-g" 'goto-line)
 
-; ;; C-c i calls insert-date-string
-; (global-set-key (kbd "C-c i") 'insert-date-string)
+                                        ; ;; C-c i calls insert-date-string
+                                        ; (global-set-key (kbd "C-c i") 'insert-date-string)
 
-; ;; Electric buffer list
-; (global-set-key "\C-b" 'electric-buffer-list)
-; (global-set-key "\C-x\C-b" 'electric-buffer-list)
+                                        ; ;; Electric buffer list
+                                        ; (global-set-key "\C-b" 'electric-buffer-list)
+                                        ; (global-set-key "\C-x\C-b" 'electric-buffer-list)
 
-; ;; Reload .emacs
-; (global-set-key "\M-r"
-;   '(lambda ()
-;      (interactive)
-;      (load-file "~/.emacs")))
+                                        ; ;; Reload .emacs
+                                        ; (global-set-key "\M-r"
+                                        ;   '(lambda ()
+                                        ;      (interactive)
+                                        ;      (load-file "~/.emacs")))
 
-; ;; disable that minimize window thing
-; (global-unset-key "\C-x\C-z")
+                                        ; ;; disable that minimize window thing
+                                        ; (global-unset-key "\C-x\C-z")
 
-; ;; disable closing emacs in Mac OS X
-; (if (system-type-is-darwin)
-;     (global-unset-key "\C-z"))
+                                        ; ;; disable closing emacs in Mac OS X
+                                        ; (if (system-type-is-darwin)
+                                        ;     (global-unset-key "\C-z"))
 
-; ;; Uncomment region command. Comment region is already "C-c c"
-; (global-set-key (kbd "\C-c z") 'uncomment-region)
+                                        ; ;; Uncomment region command. Comment region is already "C-c c"
+                                        ; (global-set-key (kbd "\C-c z") 'uncomment-region)
 
-; ;; Enable Dired Extra
-; (add-hook 'dired-load-hook
-;           (lambda ()
-;             (load "dired-x")))
+                                        ; ;; Enable Dired Extra
+                                        ; (add-hook 'dired-load-hook
+                                        ;           (lambda ()
+                                        ;             (load "dired-x")))
+
+(provide 'bindkeys)
+
+;;; bindkeys.el ends here
