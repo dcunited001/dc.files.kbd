@@ -1,0 +1,507 @@
+;;; package --- Summary
+
+;;; Commentary:
+
+;; Mappin' some keys, boss.
+
+;;; License:
+
+;; Go on and map some keys, bubb.
+
+;;; Code:
+
+;; Codin' it on up now, boss.
+
+;;; bindings.emacs.el --- Key Bindings for Emacs
+;;
+;; Copyright (c) 2013 David Conner
+;;
+;; Author: David Conner <dconner.pro@gmail.com>
+;; URL:
+;; Version: 0.0.1
+;; Keywords: me
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___OSKEYS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; OS-specific keys
+
+;; also define vars for various platforms' modkeys
+;; e.g. (setq mod1 "M-")
+
+(defun kset (fun oslist)
+  "Set keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-set-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist)))) fun))
+
+(defun kset (fun oslist)
+  "Set keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-set-key (kbd (cdr '(("all"."<end>")))) fun))
+
+(defun kunset (fun oslist)
+  "Unset keys that need to be OS Specific, using an alist as input.  
+Default key is all ((all . 'M-x') (ubu . 'M-a'))"
+  (global-unset-key (kbd (cdr (or (assoc emos oslist) (assoc "all" oslist))))))
+
+;; thinking about storing this in json for now
+;;   http://gromnitsky.blogspot.com/2013/03/creating-emacs-multi-file-packages.html
+(defvar bindkeys-json (json-read-file 
+                       (concat (file-name-directory load-file-name) "/bindkeys.emacs.json")))
+
+(defun bindkeys-json-get (key)
+  (cdr (assoc key bindkeys-json)))
+
+;; TODO: merge bindkeys-json["all"] and bindkeys-json[emos]
+;; TODO: eval json as code!
+
+;; (defun bindkeys-unbind-smex ()
+;;   (global-unset-key (kbd "M-x"))
+;;   (global-set-key (kbd "M-x") 'ergoemacs-cut-line-or-region))
+
+;; (when (or (equal emos "mac") (equal emos "ubu")) 
+;;   (bindkeys-unbind-smex))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TERMFIX
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; FIXME: not running when emacs is daemonized
+;;   and apparently it's not the unless
+(defun terminal-fix-home-end ()
+  "Remap the Esc. Sequences for Home & End"
+  (define-key input-decode-map "[H" [home])
+  (define-key input-decode-map "[F" [end]))
+
+;; Terminal fixes
+(unless window-system
+  (terminal-fix-home-end))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___GUIFIX
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun gui-fix-escape ()
+  "Make escape trigger a meta-key press"
+  (interactive)
+  (global-unset-key (kbd "<escape>"))
+  (define-key function-key-map (kbd "<escape>") 'event-apply-meta-modifier))
+
+(defun gui-set-key-fix-escape ()
+  (global-set-key (kbd "H-M-y") 'gui-fix-escape))
+
+;; GUI fixes
+(if window-system
+;;  (gui-fix-escape)         ;; this runs, and then is overwritten by emacs gui
+  (gui-set-key-fix-escape) ;; so for now, just press Opt-escape Opt-escape - lol
+  ;; maybe set up a command to wait 10 seconds?
+) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___HYPERKEY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
+
+;;(defun  osx-map-hyper ()
+  ;; "Map a hyper key in OSX.  This works on my Macbook Pro, 
+  ;;    with my KeyRemap config set to remap FN => PC_APPLICATION_KEY"
+  ;; (global-unset-key "\C-p") ;; print .. from emacs .. really?
+;; (define-key function-key-map (kbd "C-p") 'event-apply-hyper-modifier))
+
+(defun osx-terminal-map-hyper ()
+  "Map hyper key in OSX terminal.  This requires KeyRemap Config.
+  must map FN => Danish Dollar" ;; this works in non-text buffers, but not in typing text-buffers
+  (define-key function-key-map (kbd "<§>") 'event-apply-hyper-modifier))
+
+
+(defun osx-map-hyper ()
+  "Map hyper key in OSX.  This should work without KeyRemap configuration.
+  This only works in GUI emacs."
+  ;;(ns-function-modifier 'hyper)
+  (setq mac-function-modifier 'hyper))
+
+(cond
+ ;;((equal system-type 'darwin) (osx-map-hyper))
+ ((equal system-type 'darwin) (osx-map-hyper)))
+
+;; alternate configuration with PC_APPLICATION_KEY (p) => f20
+;;(define-key input-decode-map "p" [f20])
+;;(define-key function-key-map (kbd "<f20>") 'event-apply-hyper-modifier)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXTNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; WTF: only getting this error in ubuntu, not mac-osx
+;;   Wrong type argument: integer-or-marker-p, 
+;;     (cdr (or (assoc emos oslist) (assoc "all" oslist)))
+;; Update: this also happens over ssh
+;; Nevermind: also happening on OSX..
+
+;;(cond 
+;; ((equal emos "mac")
+;;  (kset 'goto-line '(("all"."M-l"))); ergoemacs 'forward-char
+;;  (kset 'beginning-of-line '(("all"."<home>")))
+;;  (kset 'end-of-line '(("all"."<end>"))))
+
+;; ('(t ) ; default here
+  (global-set-key (kbd "<home>") 'beginning-of-line)
+  (global-set-key (kbd "<end>") 'end-of-line)
+;;))
+
+;;(global-set-key (kbd "\M-[ H") 'beginning-of-line) ;; need slash?
+;;(global-set-key (kbd "\M-[ F") 'end-of-line) ;; need slash?
+
+;; beginning-of-buffer
+;; beginning-of-buffer-other-window
+;; beginning-of-defun
+;; beginning-of-defun-raw
+;; beginning-of-line
+;; beginning-of-line-text
+;; beginning-of-sas-proc
+;; beginning-of-sas-stateme
+;; beginning-of-visual-line
+;; ergoemacs-beginning-of-block
+;; ergoemacs-isearch-move-beginning-of-line
+;; ergoemacs-move-beginning-of-line
+
+;; opt+(l/r) => skip by word (not including underscores)
+;; ctrl+(l/r) => skip by word (including underscores, etc)
+;; hyper+(l/r) => ??
+
+;; opt+(u/d) =>
+;; ctrl+(u/d) =>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXTWORK
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; text manipulations (comment/indent/etc)
+
+;; need to remap
+;;(global-unset-key (kbd "C-S-<up>")) ;; move line up
+;;(global-unset-key (kbd "C-S-<down>")) ;; move line down
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TEXT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "C-x w") 'wrap-no-lines)
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+
+(global-set-key (kbd "H-TAB") 'indent-region)
+(global-set-key (kbd "H-/") 'comment-region)
+(global-set-key (kbd "H-?") 'uncomment-region)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SEARCH
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; isearch
+(global-set-key (kbd "H-f") 'isearch-forward)
+;;(global-set-key (kbd "C-f") 'isearch-repeat-forward)
+
+(global-set-key (kbd "H-F") 'isearch-backward)
+;;(global-set-key (kbd "C-F") 'isearch-repeat-backward)
+
+;; isearch-toggle-case-fold      M-c
+;; isearch-toggle-regexp         M-r
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___REPLACE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-R _") 'isearch-query-replace)
+(global-set-key (kbd "H-R SPC") 'isearch-query-replace-regexp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___PROJECTILE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___FILENAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-l") 'goto-line)
+(global-set-key (kbd "H-o") 'projectile-recentf)
+(global-set-key (kbd "H-t") 'projectile-toggle-between-implementation-and-test)
+(global-set-key (kbd "H-T") 'projectile-find-test-file)
+(global-set-key (kbd "H-p t") 'projectile-test-project)
+(global-set-key (kbd "H-d") 'ido-dired)        ;; DIRED
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___PROJECTILESEARCH
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-g") 'projectile-grep)
+;; TODO: move projectile-replace
+;;(global-set-key (kbd "H-r") 'projectile-replace)
+(global-set-key (kbd "H-a") 'projectile-ack)
+(global-set-key (kbd "H-p o") 'projectile-multi-occur)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___BUFFERNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-b") 'ido-switch-buffer)
+(global-set-key (kbd "H-B") 'ibuffer)
+(global-set-key (kbd "H-k") 'projectile-kill-buffers)
+;;(global-set-key (kbd "H-b") 'projectile-switch-to-buffer)
+
+(global-set-key (kbd "M-`") 'next-user-buffer)
+(global-set-key (kbd "M-~") 'previous-user-buffer)
+;; next-emacs-buffer
+;; previous-emacs-buffer
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___WINDOWNAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; next-multiframe-window switches to the next window
+;;   regardless of which frame it's on
+;;(global-set-key (kbd "C-`") 'next-multiframe-window)
+;;(global-set-key (kbd "C-~") 'previous-multiframe-window)
+;; should use windmove instead
+
+;; (windmove-default-keybindings)
+(global-set-key (kbd "<C-S-up>") 'windmove-up)
+(global-set-key (kbd "<C-S-down>") 'windmove-down)
+(global-set-key (kbd "<C-S-left>") 'windmove-left)
+(global-set-key (kbd "<C-S-right>") 'windmove-right)
+
+;; why is shift-up mapped to <select>??
+(global-set-key (kbd "<select>") 'windmove-up)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___FRAMENAV
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;'ergoemacs-switch-to-next-frame
+;;'ergoemacs-switch-to-prev-frame
+(global-set-key (kbd "H-n") 'new-frame)
+(global-set-key (kbd "H-N") 'delete-frame)
+(global-set-key (kbd "H-`") 'ergoemacs-switch-to-next-frame)
+(global-set-key (kbd "H-~") 'ergoemacs-switch-to-previous-frame)
+;; FIXME: why doesn't C-` work with emacs??
+;;(global-set-key (kbd "C-`") 'ns-next-frame)
+;;(global-set-key (kbd "C-~") 'ns-prev-frame)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___TAGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-p R") 'projectile-regenerate-tags)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___LISPEVAL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set to emacs-lisp-mode only?
+
+;;(kset 'ielm '(("all"."H-i")))
+(global-set-key (kbd "H-i") 'ielm)
+
+;;(global-set-key (kbd "H-RET") 'eval-region)
+(global-set-key (kbd "H-X") 'eval-region)
+(global-set-key (kbd "H-x s") 'eval-last-sexp)
+(global-set-key (kbd "H-x p") 'eval-print-last-sexp)
+(global-set-key (kbd "H-x r") 'eval-region)
+(global-set-key (kbd "H-x e") 'eval-expression)
+(global-set-key (kbd "H-x b") 'eval-buffer)
+(global-set-key (kbd "H-x d") 'eval-defun-2) ;; or eval-defun?
+
+;; prelude-eval-and-replace - eval and replace region with result
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SHELL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "H-s") 'shell-command)
+(global-set-key (kbd "H-S") 'ansi-term)
+;; sh-beginning-of-command
+;; sh-end-of-command
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___MAGIT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TODO: find a few more keys here
+(global-set-key (kbd "H-G") 'magit-status)       ;; MAGIT (why does H-C-g not work?)
+;;(global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___HELP
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TODO: find a different modkey combo?
+(global-set-key (kbd "H-C-m") 'describe-mode)            ;; DESCRIBE MODE
+(global-set-key (kbd "H-C-K") 'describe-key)             ;; DESCRIBE KEY
+(global-set-key (kbd "H-C-k") 'Helper-describe-bindings) ;; DESCRIBE BINDINGS
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___SUPERKEY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TODO: remap forward-delete to [???] in iTerm only
+;; TODO: remap [???] to Toggle Super Key
+;; TODO: map Super+[1,2,3,..] to navigate buffer/frame/windows
+
+;; modifier keys can be configured using these:
+;; (setq mac-option-modifier 'meta)
+;; (setq mac-control-modifier 'ctrl)
+;; (setq mac-command-modifier 'hyper)
+;; (setq mac-command-modifier 'super)
+;; (setq mac-command-key-is-meta  t)
+;; (setq mac-option-key-is-meta nil)
+;; (setq mac-command-key-is-meta t)
+;; (setq mac-option-modifier nil)
+
+;; (setq mac-command-modifier 'super) ; doesn't seem work properly in iTerm
+
+;; supposed to prevent osx from trapping command hotkeys
+;;   but doesn't work, at least from within iTerm
+;; (setq mac-pass-command-to-system nil) ;enable/disable?
+;; (setq mac-pass-command-to-system t) ;enable/disable?
+;; (setq mac-pass-command-to-system) ;enable/disable?
+;; (setq mac-pass-control-to-system nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___CLOJURE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; nrepl-jack-in
+
+(global-set-key (kbd "H-j") 'nrepl-javadoc)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___RUBY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ruby-beginning-of-defun
+;; ruby-beginning-of-block
+;; ruby-end-of-defun
+;; ruby-end-of-block
+
+;; ruby send defuns??
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___RINARI
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; When Rinari mode is loaded, add extra bindings to its key map enabling the
+;; use of M-R and M-r as its prefixes. The easier to type M-r is used for the
+;; frequently used `find' functions and M-R is used for the more infrequently
+;; used rake/script/web-server commands. M-r is normally bound to
+;; `move-to-window-line-top-bottom', which I can do without, and M-R is
+;; normally unbound. Examples of the changes below; it should be obvious how to
+;; pick your own prefixes if you don't like mine.
+;;
+;; Function                  Default Binding    New Binding
+;; ========                  ===============    ===========
+;; rinari-find-controller    C-c ; f c          H-r c
+;; rinari-web-server         C-c ; w            H-R w
+(add-hook 'rinari-minor-mode-hook (lambda ()
+  (define-prefix-command 'pd-rinari-map1)
+  (define-prefix-command 'pd-rinari-map2)
+  (local-set-key (kbd "H-R") 'pd-rinari-map1)
+  (local-set-key (kbd "H-r") 'pd-rinari-map2)
+
+  (define-key pd-rinari-map1 "'" 'rinari-find-by-context)
+  (define-key pd-rinari-map1 ";" 'rinari-find-by-context)
+  (define-key pd-rinari-map1 "c" 'rinari-console)
+  (define-key pd-rinari-map1 "d" 'rinari-cap)
+  (define-key pd-rinari-map1 "e" 'rinari-insert-erb-skeleton)
+  (define-key pd-rinari-map1 "g" 'rinari-rgrep)
+  (define-key pd-rinari-map1 "p" 'rinari-goto-partial)
+  (define-key pd-rinari-map1 "q" 'rinari-sql)
+  (define-key pd-rinari-map1 "r" 'rinari-rake)
+  (define-key pd-rinari-map1 "s" 'rinari-script)
+  (define-key pd-rinari-map1 "t" 'rinari-test)
+  (define-key pd-rinari-map1 "w" 'rinari-web-server)
+  (define-key pd-rinari-map1 "x" 'rinari-extract-partial)
+
+  (define-key pd-rinari-map2 ";" 'rinari-find-by-context)
+  (define-key pd-rinari-map2 "C" 'rinari-find-cells)
+  (define-key pd-rinari-map2 "F" 'rinari-find-features)
+  (define-key pd-rinari-map2 "M" 'rinari-find-mailer)
+  (define-key pd-rinari-map2 "S" 'rinari-find-steps)
+  (define-key pd-rinari-map2 "Y" 'rinari-find-sass)
+  (define-key pd-rinari-map2 "a" 'rinari-find-application)
+  (define-key pd-rinari-map2 "c" 'rinari-find-controller)
+  (define-key pd-rinari-map2 "e" 'rinari-find-environment)
+  (define-key pd-rinari-map2 "f" 'rinari-find-file-in-project)
+  (define-key pd-rinari-map2 "h" 'rinari-find-helper)
+  (define-key pd-rinari-map2 "i" 'rinari-find-migration)
+  (define-key pd-rinari-map2 "j" 'rinari-find-javascript)
+  (define-key pd-rinari-map2 "l" 'rinari-find-lib)
+  (define-key pd-rinari-map2 "m" 'rinari-find-model)
+  (define-key pd-rinari-map2 "n" 'rinari-find-configuration)
+  (define-key pd-rinari-map2 "o" 'rinari-find-log)
+  (define-key pd-rinari-map2 "p" 'rinari-find-public)
+  (define-key pd-rinari-map2 "r" 'rinari-find-rspec)
+  (define-key pd-rinari-map2 "s" 'rinari-find-script)
+  (define-key pd-rinari-map2 "t" 'rinari-find-test)
+  (define-key pd-rinari-map2 "u" 'rinari-find-plugin)
+  (define-key pd-rinari-map2 "v" 'rinari-find-view)
+  (define-key pd-rinari-map2 "w" 'rinari-find-worker)
+  (define-key pd-rinari-map2 "x" 'rinari-find-fixture)
+  (define-key pd-rinari-map2 "y" 'rinari-find-stylesheet)
+  (define-key pd-rinari-map2 "z" 'rinari-find-rspec-fixture)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___YAML
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; no idea why yaml-mode disables set-mark-command (selecting text)
+;;   i'm going to assume it's prelude overlapping with ergoemacs
+;; - nevermind, this fix doesn't work.  yay, complete waste of time.
+;; (add-hook 'yaml-mode-hook '(lambda () (define-key "M-SPC" 'set-mark-command)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___MISC
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "H-C-t") 'twit)
+(global-set-key (kbd "H-M") 'markdown-preview)
+
+;;==============================;;
+;; My Key Bindings
+;;==============================;;
+
+;; TODO: set gist hotkey
+                                        ; (global-set-key (kbd "<f8>") 'gist-region-or-buffer)
+
+;;==============================;;
+;; My Key Bindings
+;;==============================;;
+;; http://es.gnu.org/~aleksander/emacs/dotemacs.el
+
+                                        ; ;; Simplify Go-to-line with Meta-g
+                                        ; (global-set-key "\M-g" 'goto-line)
+
+                                        ; ;; C-c i calls insert-date-string
+                                        ; (global-set-key (kbd "C-c i") 'insert-date-string)
+
+                                        ; ;; Electric buffer list
+                                        ; (global-set-key "\C-b" 'electric-buffer-list)
+                                        ; (global-set-key "\C-x\C-b" 'electric-buffer-list)
+
+                                        ; ;; Reload .emacs
+                                        ; (global-set-key "\M-r"
+                                        ;   '(lambda ()
+                                        ;      (interactive)
+                                        ;      (load-file "~/.emacs")))
+
+                                        ; ;; disable that minimize window thing
+                                        ; (global-unset-key "\C-x\C-z")
+
+                                        ; ;; disable closing emacs in Mac OS X
+                                        ; (if (system-type-is-darwin)
+                                        ;     (global-unset-key "\C-z"))
+
+                                        ; ;; Uncomment region command. Comment region is already "C-c c"
+                                        ; (global-set-key (kbd "\C-c z") 'uncomment-region)
+
+                                        ; ;; Enable Dired Extra
+                                        ; (add-hook 'dired-load-hook
+                                        ;           (lambda ()
+                                        ;             (load "dired-x")))
+
+(provide 'bindkeys)
+
+;;; bindkeys.el ends here
