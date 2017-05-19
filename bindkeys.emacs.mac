@@ -84,8 +84,8 @@
 ;; ;;;___TEXT
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "M-[") 'forward-sentence)
-(global-set-key (kbd "M-]") 'backward-sentence)
+(global-set-key (kbd "M-[") 'backward-sentence)
+(global-set-key (kbd "M-]") 'forward-sentence)
 
 ;; (global-set-key (kbd "C-x w") 'wrap-no-lines)
 ;; (global-set-key (kbd "<home>") 'move-beginning-of-line)
@@ -108,6 +108,10 @@
 
 ;; ;; isearch-toggle-case-fold      M-c
 ;; ;; isearch-toggle-regexp         M-r
+
+;; find-grep
+
+(global-set-key (kbd "H-f") 'find-grep)
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;;;___REPLACE
