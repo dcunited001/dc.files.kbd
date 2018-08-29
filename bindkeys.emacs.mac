@@ -26,19 +26,6 @@
 ;; TODO: eval json as code!
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___OSKEYS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; OS-specific keys
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___TERMFIX
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___GUIFIX
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HYPERKEY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; http://stackoverflow.com/questions/10730775/emacs-create-key-modifier
@@ -62,24 +49,6 @@
  ;;((equal system-type 'darwin) (osx-map-hyper))
  ((equal system-type 'darwin) (osx-map-hyper)))
 
-(provide 'bindkeys)
-
-;;; bindkeys.el ends here
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___TEXTNAV
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___TEXTWORK
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; text manipulations (comment/indent/etc)
-
-;; ;; need to remap
-;; ;;(global-unset-key (kbd "C-S-<up>")) ;; move line up
-;; ;;(global-unset-key (kbd "C-S-<down>")) ;; move line down
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TEXT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -94,6 +63,13 @@
 ;; (global-set-key (kbd "H-TAB") 'indent-region)
 ;; (global-set-key (kbd "H-/") 'comment-region)
 ;; (global-set-key (kbd "H-?") 'uncomment-region)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___MARKDOWN
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "H-t") 'synonyms)
+(global-set-key (kbd "H-s") 'ispell-word)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___SEARCH
@@ -121,10 +97,10 @@
 ;; (global-set-key (kbd "H-R SPC") 'isearch-query-replace-regexp)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___PROJECTILE
+;;;___CONFIG
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
+(global-set-key (kbd "H-l") 'reload-init)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___FILENAV
@@ -242,6 +218,10 @@
 ;; (global-set-key (kbd "H-C-K") 'describe-key)             ;; DESCRIBE KEY
 ;; (global-set-key (kbd "H-C-k") 'Helper-describe-bindings) ;; DESCRIBE BINDINGS
 
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___SUPERKEY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -258,8 +238,6 @@
 ;; ;; (setq mac-option-key-is-meta nil)
 ;; ;; (setq mac-command-key-is-meta t)
 ;; ;; (setq mac-option-modifier nil)
-
-;; ;; (setq mac-command-modifier 'super) ; doesn't seem work properly in iTerm
 
 ;; ;; supposed to prevent osx from trapping command hotkeys
 ;; ;;   but doesn't work, at least from within iTerm
@@ -386,12 +364,6 @@
 ;;                                         ; (global-set-key "\C-b" 'electric-buffer-list)
 ;;                                         ; (global-set-key "\C-x\C-b" 'electric-buffer-list)
 
-;;                                         ; ;; Reload .emacs
-;;                                         ; (global-set-key "\M-r"
-;;                                         ;   '(lambda ()
-;;                                         ;      (interactive)
-;;                                         ;      (load-file "~/.emacs")))
-
 ;;                                         ; ;; disable that minimize window thing
 ;;                                         ; (global-unset-key "\C-x\C-z")
 
@@ -406,3 +378,8 @@
 ;;                                         ; (add-hook 'dired-load-hook
 ;;                                         ;           (lambda ()
 ;;                                         ;             (load "dired-x")))
+
+
+(provide 'bindkeys)
+
+;;; bindkeys.el ends here
