@@ -16,6 +16,12 @@ XKB custom keyboards are in `xkeyboard`.  XKB is way cooler than xmodmap.
 Digimon Layout
 =========
 
+```
+Note: these instructions are pre-macOS. For digimon layout, install
+karabiner and link ~/.files/kbd/karabiner/complex_modifications/ for
+partial support
+```
+
 For the digimon layout on OSX, you'll need to at least enable the Uber key to
 retain functionality of your Consumer keys.  This means you'll need to
 update two keys in Seil(PC Key Remap) and enable a few custom settings
