@@ -124,7 +124,6 @@
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -185,7 +184,6 @@
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -309,9 +307,48 @@
         }
       ]
     },
+
     {
-      "description": "Remap FN to Digits",
+      "description": "Remap FN to Digits (Escape + (F1-F12) => Media Keys)",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mod_uber_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "set_variable": {
+                "name": "mod_uber_key",
+                "value": 0
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "mod_uber_key",
+                "value": 0
+              }
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -325,6 +362,24 @@
           "to": [
             {
               "key_code": "f1"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1"
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_decrement"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -362,6 +417,24 @@
           },
           "to": [
             {
+              "key_code": "display_brightness_increment"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
               "key_code": "2"
             }
           ]
@@ -379,6 +452,24 @@
           "to": [
             {
               "key_code": "f3"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f3"
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -416,6 +507,24 @@
           },
           "to": [
             {
+              "key_code": "launchpad"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f4"
+          },
+          "to": [
+            {
               "key_code": "4"
             }
           ]
@@ -433,6 +542,24 @@
           "to": [
             {
               "key_code": "f5"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f5"
+          },
+          "to": [
+            {
+              "key_code": "illumination_decrement"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -470,6 +597,24 @@
           },
           "to": [
             {
+              "key_code": "illumination_increment"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f6"
+          },
+          "to": [
+            {
               "key_code": "6"
             }
           ]
@@ -487,6 +632,24 @@
           "to": [
             {
               "key_code": "f7"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f7"
+          },
+          "to": [
+            {
+              "key_code": "rewind"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -524,6 +687,24 @@
           },
           "to": [
             {
+              "key_code": "play_or_pause"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f8"
+          },
+          "to": [
+            {
               "key_code": "8"
             }
           ]
@@ -541,6 +722,24 @@
           "to": [
             {
               "key_code": "f9"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f9"
+          },
+          "to": [
+            {
+              "key_code": "fastforward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -578,6 +777,24 @@
           },
           "to": [
             {
+              "key_code": "mute"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f10"
+          },
+          "to": [
+            {
               "key_code": "0"
             }
           ]
@@ -595,6 +812,24 @@
           "to": [
             {
               "key_code": "f11"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f11"
+          },
+          "to": [
+            {
+              "key_code": "volume_decrement"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
@@ -625,6 +860,24 @@
           "to": [
             {
               "key_code": "f12"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f12"
+          },
+          "to": [
+            {
+              "key_code": "volume_increment"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mod_uber_key",
+              "value": 1
             }
           ]
         },
