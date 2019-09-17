@@ -25,6 +25,8 @@
 ;; TODO: merge bindkeys-json["all"] and bindkeys-json[emos]
 ;; TODO: eval json as code!
 
+;; emacs-tw/awesome-emacs: https://github.com/emacs-tw/awesome-emacs
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HYPERKEY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -43,11 +45,80 @@
   "Map hyper key in OSX.  This should work without KeyRemap configuration.
   This only works in GUI emacs."
   ;;(ns-function-modifier 'hyper)
-  (setq mac-function-modifier 'hyper))
+  (setq ns-function-modifier 'hyper))
 
 (cond
  ;;((equal system-type 'darwin) (osx-map-hyper))
  ((equal system-type 'darwin) (osx-map-hyper)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___EDITOR
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "s-/") 'winner-undo)
+(global-set-key (kbd "H-/") 'undo-tree-visualize)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___HELM
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h k") 'describe-bindings)
+(global-set-key (kbd "C-c h u") 'helm-unicode)
+
+;; helm-taskwsitch requires X-Windows
+(cond ((equal system-type 'linux)
+       (global-set-key (kbd "A-<tab>") 'helm-taskswitch)))
+
+;; helm-commandlinefu.el: https://github.com/xuchunyang/helm-commandlinefu
+;; TODO: fix commandlinefu
+(global-set-key (kbd "H-c") 'helm-commandlinefu-search)
+(global-set-key (kbd "H-C") 'helm-commandlinefu-browse)
+
+(global-set-key (kbd "H-e") 'helm-emmet)
+
+(eval-after-load 'flycheck
+  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+
+(global-set-key (kbd "H-r") 'helm-rage)
+
+;; TODO: helm-swoop
+;; ;; Change the keybinds to whatever you like :)
+;; (global-set-key (kbd "M-i") 'helm-swoop)
+;; (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+;; (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
+;; (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
+
+;; ;; When doing isearch, hand the word over to helm-swoop
+;; (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+;; ;; From helm-swoop to helm-multi-swoop-all
+;; (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+;; ;; When doing evil-search, hand the word over to helm-swoop
+;; ;; (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+
+;; ;; Instead of helm-multi-swoop-all, you can also use helm-multi-swoop-current-mode
+;; (define-key helm-swoop-map (kbd "M-m") 'helm-multi-swoop-current-mode-from-helm-swoop)
+
+;; ;; Move up and down like isearch
+;; (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+;; (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+;; (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+;; (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___AUTOCOMPLETE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; 'completion-at-tab only works while typing a word
+(global-set-key (kbd "H-TAB") 'completion-at-point)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___AVY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c C-j") 'avy-resume)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___TEXT
@@ -64,12 +135,22 @@
 ;; (global-set-key (kbd "H-/") 'comment-region)
 ;; (global-set-key (kbd "H-?") 'uncomment-region)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___YASNIPPET
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c y") 'helm-yas-complete)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___MARKDOWN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "H-t") 'synonyms)
+(global-set-key (kbd "H-t") 'mw-thesaurus-lookup-at-point)
+(global-set-key (kbd "H-d") 'helm-wordnet-suggest)
 (global-set-key (kbd "H-s") 'ispell-word)
+(global-set-key (kbd "H-M") 'markdown-preview)
+;; TODO: helm-ispell doesn't work when set to this key
+;; (global-set-key (kbd "H-s") 'helm-ispell)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___SEARCH
@@ -79,7 +160,7 @@
 ;; (global-set-key (kbd "H-f") 'isearch-forward)
 ;; ;;(global-set-key (kbd "C-f") 'isearch-repeat-forward)
 
-;; (global-set-key (kbd "H-F") 'isearch-backward)
+;; (Global-Set-KeY (kbd "H-F") 'isearch-backward)
 ;; ;;(global-set-key (kbd "C-F") 'isearch-repeat-backward)
 
 ;; ;; isearch-toggle-case-fold      M-c
@@ -100,7 +181,8 @@
 ;;;___CONFIG
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "H-l") 'reload-init)
+(global-set-key (kbd "H-i") 'reload-init)
+(global-set-key (kbd "H-I") 'reload-init-all)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___FILENAV
@@ -111,7 +193,6 @@
 ;; (global-set-key (kbd "H-t") 'projectile-toggle-between-implementation-and-test)
 ;; (global-set-key (kbd "H-T") 'projectile-find-test-file)
 ;; (global-set-key (kbd "H-p t") 'projectile-test-project)
-;; (global-set-key (kbd "H-d") 'ido-dired)        ;; DIRED
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___PROJECTILESEARCH
@@ -127,7 +208,6 @@
 ;;;___BUFFERNAV
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (global-set-key (kbd "H-b") 'ido-switch-buffer)
 ;; (global-set-key (kbd "H-B") 'ibuffer)
 ;; (global-set-key (kbd "H-k") 'projectile-kill-buffers)
 ;; ;;(global-set-key (kbd "H-b") 'projectile-switch-to-buffer)
@@ -148,13 +228,10 @@
 ;; ;; should use windmove instead
 
 ;; ;; (windmove-default-keybindings)
-;; (global-set-key (kbd "<C-S-up>") 'windmove-up)
-;; (global-set-key (kbd "<C-S-down>") 'windmove-down)
-;; (global-set-key (kbd "<C-S-left>") 'windmove-left)
-;; (global-set-key (kbd "<C-S-right>") 'windmove-right)
-
-;; ;; why is shift-up mapped to <select>??
-;; (global-set-key (kbd "<select>") 'windmove-up)
+(global-set-key (kbd "<s-up>") 'windmove-up)
+(global-set-key (kbd "<s-down>") 'windmove-down)
+(global-set-key (kbd "<s-left>") 'windmove-left)
+(global-set-key (kbd "<s-right>") 'windmove-right)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___FRAMENAV
@@ -181,16 +258,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; set to emacs-lisp-mode only?
 
-;; ;;(kset 'ielm '(("all"."H-i")))
-;; (global-set-key (kbd "H-i") 'ielm)
+;;(kset 'ielm '(("all"."H-i")))
 
-;; ;;(global-set-key (kbd "H-RET") 'eval-region)
+(global-set-key (kbd "H-x i") 'ielm)
+(global-set-key (kbd "H-x H-x") 'eval-region)
+(global-set-key (kbd "H-x x") 'eval-last-sexp)
+(global-set-key (kbd "H-x e") 'eval-expression)
+(global-set-key (kbd "H-x b") 'eval-buffer)
+
 ;; (global-set-key (kbd "H-X") 'eval-region)
-;; (global-set-key (kbd "H-x s") 'eval-last-sexp)
 ;; (global-set-key (kbd "H-x p") 'eval-print-last-sexp)
 ;; (global-set-key (kbd "H-x r") 'eval-region)
-;; (global-set-key (kbd "H-x e") 'eval-expression)
-;; (global-set-key (kbd "H-x b") 'eval-buffer)
 ;; (global-set-key (kbd "H-x d") 'eval-defun-2) ;; or eval-defun?
 
 ;; ;; prelude-eval-and-replace - eval and replace region with result
@@ -211,6 +289,25 @@
 ;; ;;(global-set-key (kbd "H-C-r") 'rinari-launch)    ;; RINARI
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;___RESTCLIENT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; these are already mapped (run helm-restclient)
+;; C-c C-g: restclient-helm
+
+;; C-c C-c: runs the query under the cursor, tries to pretty-print the response (if possible)
+;; C-c C-r: same, but doesn't do anything with the response, just shows the buffer
+;; C-c C-v: same as C-c C-c, but doesn't switch focus to other window
+;; C-c C-p: jump to the previous query
+;; C-c C-n: jump to the next query
+;; C-c C-.: mark the query under the cursor
+;; C-c C-u: copy query under the cursor as a curl command
+;; C-c C-g: start a helm session with sources for variables and requests (if helm is available, of course)
+;; C-c n n: narrow to region of current request (including headers)
+;; TAB: hide/show current request body, only if
+;; C-c C-a: show all collapsed regions
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___HELP
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; TODO: find a different modkey combo?
@@ -218,42 +315,12 @@
 ;; (global-set-key (kbd "H-C-K") 'describe-key)             ;; DESCRIBE KEY
 ;; (global-set-key (kbd "H-C-k") 'Helper-describe-bindings) ;; DESCRIBE BINDINGS
 
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___SUPERKEY
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; TODO: remap forward-delete to [???] in iTerm only
-;; ;; TODO: remap [???] to Toggle Super Key
-;; ;; TODO: map Super+[1,2,3,..] to navigate buffer/frame/windows
-
-;; ;; modifier keys can be configured using these:
-;; ;; (setq mac-option-modifier 'meta)
-;; ;; (setq mac-control-modifier 'ctrl)
-;; ;; (setq mac-command-modifier 'hyper)
-;; ;; (setq mac-command-modifier 'super)
-;; ;; (setq mac-command-key-is-meta  t)
-;; ;; (setq mac-option-key-is-meta nil)
-;; ;; (setq mac-command-key-is-meta t)
-;; ;; (setq mac-option-modifier nil)
-
-;; ;; supposed to prevent osx from trapping command hotkeys
-;; ;;   but doesn't work, at least from within iTerm
-;; ;; (setq mac-pass-command-to-system nil) ;enable/disable?
-;; ;; (setq mac-pass-command-to-system t) ;enable/disable?
-;; ;; (setq mac-pass-command-to-system) ;enable/disable?
-;; ;; (setq mac-pass-control-to-system nil)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___CLOJURE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; nrepl-jack-in
 
 ;; (global-set-key (kbd "H-j") 'nrepl-javadoc)
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;___RUBY
@@ -335,12 +402,6 @@
 ;; ;;   i'm going to assume it's prelude overlapping with ergoemacs
 ;; ;; - nevermind, this fix doesn't work.  yay, complete waste of time.
 ;; ;; (add-hook 'yaml-mode-hook '(lambda () (define-key "M-SPC" 'set-mark-command)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;___MISC
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (global-set-key (kbd "H-C-t") 'twit)
-;; (global-set-key (kbd "H-M") 'markdown-preview)
 
 ;; ;;==============================;;
 ;; ;; My Key Bindings
